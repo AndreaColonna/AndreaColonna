@@ -12,15 +12,15 @@
     <translations>
         <translation locale="de">
             <title>Statistik des Beschleunigungssensors</title>
-            <category>Experimentalphysik I</category>
+            <category>Experimentalphysik</category>
             <description>
                 Prüfe die statistische Verteilung der Sensordaten.
 
                 Dieses Experiment zeigt einfach die Rohdaten der z-Komponente des Beschleunigungssensors in einem Histogramm an. Wenn das Smartphone ruht, sollte sich hier eine Gauß-Verteilung ergeben. Je nach Rauschen des Sensors solltest du die Bin-Größe anpassen.
             </description>
             <string original="Statistics">Statistik</string>
-            <string original="z Acceleration">z Beschleunigung</string>
-            <string original="z Acceleration (m/s²)">z Beschl. (m/s²)</string>
+            <string original="y Acceleration">y Beschleunigung</string>
+            <string original="y Acceleration (m/s²)">y Beschl. (m/s²)</string>
             <string original="Histogram">Histogramm</string>
             <string original="Bin center (m/s²)">Bin-Mitte (m/s²)</string>
             <string original="Count">Anzahl</string>
