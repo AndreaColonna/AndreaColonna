@@ -53,7 +53,7 @@
     </input>
     <views>
         <view label="Statistics">
-            <graph label="Acceleration" labelX="t (s)" labelY="y Acceleration (m/s²)" partialUpdate="true" style="lines">
+            <graph label="Acceleration" labelX="t (s)" labelY="Acceleration (m/s²)" partialUpdate="true" style="lines">
                 <input axis="x">t</input>
                 <input axis="y">acc</input>
             </graph>
