@@ -27,7 +27,7 @@
     </data-containers>
     <input>
         <sensor type="accelerometer" rate="0">
-            <output component="abs">accY</output>
+            <output component="g_y">accY</output>
             <output component="t">t</output>
         </sensor>
     </input>
