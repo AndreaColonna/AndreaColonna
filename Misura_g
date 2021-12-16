@@ -46,7 +46,7 @@
         <container size="500">gaussian</container>
     </data-containers>
     <input>
-        <sensor type="accelerometro" rate="0">
+        <sensor type="accelerometer" rate="0">
             <output component="abs">acc</output>
             <output component="t">t</output>
         </sensor>
