@@ -30,7 +30,7 @@
         </translation>
     </translations>
     <data-containers>
-        <container size="0">acc</container>
+        <container size="0">accY</container>
         <container size="0">t</container>
         <container size="0">binStart</container>
         <container size="0">binCount</container>
@@ -47,17 +47,17 @@
     </data-containers>
     <input>
         <sensor type="accelerometer" rate="0">
-            <output component="abs">acc</output>
+            <output component="g_y">accY</output>
             <output component="t">t</output>
         </sensor>
     </input>
     <views>
         <view label="Statistics">
-            <graph label="Acceleration" labelX="t (s)" labelY="Acceleration (m/s²)" partialUpdate="true" style="lines">
+            <graph label="g_y" labelX="t (s)" labelY="Acceleration (m/s²)" partialUpdate="true" style="lines">
                 <input axis="x">t</input>
-                <input axis="y">acc</input>
+                <input axis="y">accY</input>
             </graph>
-            <graph label="Histogram" labelX="Acceleration (m/s²)" labelY="Count" partialUpdate="false">
+            <graph label="Histogram" labelX="g_y (m/s²)" labelY="Count" partialUpdate="false">
                 <input axis="x">gaussianX</input>
                 <input axis="y" style="lines" lineWidth="2">gaussian</input>
                 <input axis="x">binStart</input>
@@ -66,7 +66,7 @@
             <edit label="Bin size" unit="m/s²" default="0.005" signed="false">
                 <output>binSize</output>
             </edit>
-            <value label="Average acceleration" precision="4" scientific="false" unit="m/s²" factor="1">
+            <value label="g_y" precision="4" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>
             </value>
             <value label="Standard deviation" precision="4" scientific="false" unit="m/s²" factor="1">
@@ -79,18 +79,18 @@
     </views>
     <analysis>
         <binning>
-            <input clear="false">acc</input>
+            <input clear="false">accY</input>
             <input clear="false" as="dx">binSize</input>
             <output clear="true">binStart</output>
             <output clear="true">binCount</output>
         </binning>
         <average>
-            <input clear="false">acc</input>
+            <input clear="false">accY</input>
             <output as="average">average</output>
             <output as="stddev">deviation</output>
         </average>
         <count>
-            <input clear="false">acc</input>
+            <input clear="false">accY</input>
             <output>count</output>
         </count>
 
@@ -160,7 +160,7 @@
     <export>
         <set name="Data">
             <data name="t (s)">t</data>
-            <data name="z Acceleration (m/s^2)">acc</data>
+            <data name="z Acceleration (m/s^2)">accY</data>
         </set>
         <set name="Bins">
             <data name="Bin start (m/s²)">binStart</data>
