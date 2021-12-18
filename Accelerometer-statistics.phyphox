@@ -19,8 +19,8 @@
                 Dieses Experiment zeigt einfach die Rohdaten der z-Komponente des Beschleunigungssensors in einem Histogramm an. Wenn das Smartphone ruht, sollte sich hier eine Gauß-Verteilung ergeben. Je nach Rauschen des Sensors solltest du die Bin-Größe anpassen.
             </description>
             <string original="Statistics">Statistik</string>
-            <string original="Acceleration">Beschleunigung</string>
-            <string original="Acceleration (m/s²)">Beschl. (m/s²)</string>
+            <string original="y Acceleration">y Beschleunigung</string>
+            <string original="y Acceleration (m/s²)">y Beschl. (m/s²)</string>
             <string original="Histogram">Histogramm</string>
             <string original="Bin center (m/s²)">Bin-Mitte (m/s²)</string>
             <string original="Count">Anzahl</string>
@@ -47,13 +47,13 @@
     </data-containers>
     <input>
         <sensor type="accelerometer" rate="0">
-            <output component="g_y">accY</output>
+            <output component="y">accY</output>
             <output component="t">t</output>
         </sensor>
     </input>
     <views>
         <view label="Statistics">
-            <graph label="g_y" labelX="t (s)" labelY="Acceleration (m/s²)" partialUpdate="true" style="lines">
+            <graph label="g_y" labelX="t (s)" labelY="y Acceleration (m/s²)" partialUpdate="true" style="lines">
                 <input axis="x">t</input>
                 <input axis="y">accY</input>
             </graph>
@@ -63,13 +63,13 @@
                 <input axis="x">binStart</input>
                 <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
             </graph>
-            <edit label="Bin size" unit="m/s²" default="0.005" signed="false">
+            <edit label="Bin size" unit="m/s²" default="0.05" signed="false">
                 <output>binSize</output>
             </edit>
-            <value label="g_y" precision="4" scientific="false" unit="m/s²" factor="1">
+            <value label="g_y" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>
             </value>
-            <value label="Standard deviation" precision="4" scientific="false" unit="m/s²" factor="1">
+            <value label="Standard deviation" precision="2" scientific="false" unit="m/s²" factor="1">
                 <input>deviation</input>
             </value>
             <value label="Count" precision="0" scientific="false" unit="" factor="1">
@@ -160,7 +160,7 @@
     <export>
         <set name="Data">
             <data name="t (s)">t</data>
-            <data name="z Acceleration (m/s^2)">accY</data>
+            <data name="y Acceleration (m/s^2)">accY</data>
         </set>
         <set name="Bins">
             <data name="Bin start (m/s²)">binStart</data>
