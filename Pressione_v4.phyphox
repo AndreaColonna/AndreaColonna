@@ -4,16 +4,6 @@
     <color>009200</color>
     <description>Misura della pressione tramite scheda Arduino..</description>
     <icon format="string">Pre</icon>
-    <translations>
-        <translation locale="it">
-            <title>Pressione</title>
-            <description>Visualizza la pressione misurata dalla scheda Arduino </description>
-            <string original="FirstView">Schermata iniziale</string>
-            <string original="Pressure over time">Pressione in funzione del tempo</string>
-            <string original="time">tempi</string>
-            <string original="pressure">pressione</string>
-        </translation>
-    </translations>
     <data-containers>
         <container size="0" static="false">CH1</container>
         <container size="0" static="false">CH2</container>
