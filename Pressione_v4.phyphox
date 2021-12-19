@@ -1,4 +1,4 @@
-<phyphox xmlns="http://phyphox.org/xml" xmlns:editor="http://phyphox.org/editor/xml">
+<phyphox version="1.10">
     <title>Pressione</title>
     <category>MOBILE Arduino Nano 33 BLE Sense</category>
     <color>009200</color>
