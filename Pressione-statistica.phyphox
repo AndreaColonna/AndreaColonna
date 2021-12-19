@@ -72,13 +72,13 @@
             <output as="count">count</output>
         </count>
         <subrange editor:uuid="211" editor:posx="628.738639831543" editor:posy="154.75001907348633">
-            <input clear="false">binStarts</input>
+            <input clear="false">binStart</input>
             <input as="from" type="value">0</input>
             <input as="length" type="value">1</input>
             <output>minX</output>
         </subrange>
         <append editor:uuid="212" editor:posx="628.6704711914062" editor:posy="335.17045974731445">
-            <input clear="false">binStarts</input>
+            <input clear="false">binStart</input>
             <output>temp1</output>
         </append>
         <add editor:uuid="213" editor:posx="846.9318237304688" editor:posy="336.7727241516113">
