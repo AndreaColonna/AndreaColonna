@@ -33,14 +33,14 @@
         <container size="0" static="false">CH2</container>
         <container size="0" static="false">CH1</container>
         <container size="0" static="false">CH0</container>
-		<container size="0">binStart</container>
-		<container size="0">binCount</container>
-		<container size="1">average</container>
-		<container size="1">deviation</container>
-		<container size="1">count</container>
+	<container size="0">binStart</container>
+	<container size="0">binCount</container>
+	<container size="1">average</container>
+	<container size="1">deviation</container>
+	<container size="1">count</container>
         <container size="1">binSize</container>
         <container size="0">temp1</container>
-		<container size="0">temp2</container>
+	<container size="0">temp2</container>
         <container size="1">minX</container>
         <container size="1">maxX</container>
         <container size="500">gaussianX</container>
@@ -62,11 +62,12 @@
         </bluetooth>
     </output>
     <analysis sleep="0"  onUserInput="false">
-        <binning editor:uuid="164" editor:posx="395.5113754272461" editor:posy="154.3636360168457">
+        
+	<binning editor:uuid="164" editor:posx="395.5113754272461" editor:posy="154.3636360168457">
             <input clear="false">CH4</input>
             <input as="dx" clear="false">binSize</input>
             <output clear="true">binStart</output>
-			<output clear="true">binCount</output>
+	    <output clear="true">binCount</output>
         </binning>
         <average editor:uuid="209" editor:posx="393.3068161010742" editor:posy="300.3863639831543">
             <input clear="false">CH4</input>
@@ -123,7 +124,7 @@
             <input>temp2</input>
             <input type="value">2.506628275</input>
             <input clear="false">deviation</input>
-			<output>temp1</output>
+	    <output>temp1</output>
         </divide>
         <multiply>
             <input>temp1</input>
@@ -150,10 +151,10 @@
             <value label="Acc z" precision="0" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>
             </value>
-            <value label="Standard deviation" precision="0" scientific="false" unit="m/s²" factor="1">
+            <value label="Standard deviation" precision="4" scientific="false" unit="m/s²" factor="1">
                 <input>deviation</input>
             </value>
-            <value label="Count" precision="0" scientific="false" unit="" factor="1">
+            <value label="Count" precision="4" scientific="false" unit="" factor="1">
                 <input>count</input>
             </value>
         </view>
