@@ -35,7 +35,8 @@
         <container size="0" static="false">CH0</container>
 	<container size="0">binStart</container>
 	<container size="0">binCount</container>
-	<container size="1">average</container>
+	<container size="0">average</container>
+	<container size="0"> accz</container>
 	<container size="1">deviation</container>
 	<container size="1">count</container>
         <container size="1">binSize</container>
@@ -62,20 +63,27 @@
         </bluetooth>
     </output>
     <analysis sleep="0"  onUserInput="false">
-        
+         <multiply>
+            <input clear = "false">CH4</input>
+            <input type="value">9.8066</input>
+            <output>accz</output>
+        </multiply>
+
 	<binning editor:uuid="164" editor:posx="395.5113754272461" editor:posy="154.3636360168457">
-            <input clear="false">CH4</input>
+            <input clear="false">accz</input>
             <input as="dx" clear="false">binSize</input>
             <output clear="true">binStart</output>
 	    <output clear="true">binCount</output>
         </binning>
+	
+
         <average editor:uuid="209" editor:posx="393.3068161010742" editor:posy="300.3863639831543">
-            <input clear="false">CH4</input>
+            <input clear="false">accz</input>
             <output as="average">average</output>
             <output as="stddev">deviation</output>
         </average>
         <count editor:uuid="210" editor:posx="391.72728729248047" editor:posy="427.420467376709">
-            <input clear="false">CH4</input>
+            <input clear="false">accz</input>
             <output as="count">count</output>
         </count>
         <subrange editor:uuid="211" editor:posx="628.738639831543" editor:posy="154.75001907348633">
@@ -134,10 +142,10 @@
         </multiply>
     </analysis>
     <views>
-        <view label="Pressione">
+        <view label="Acc z">
             <graph label="Accelerazione" labelX="t (s)" labelY="Acc z (m/s²)" partialUpdate="true" style="lines">
                 <input axis="x">CH1</input>
-                <input axis="y">CH4</input>
+                <input axis="y">accz</input>
             </graph>
             <graph label="Istogramma" labelX="Accelerazione (m/s²)" labelY="Count" partialUpdate="false">
                 <input axis="x">gaussianX</input>
@@ -162,7 +170,7 @@
     <export>
         <set name="Data">
             <data name="t (s)">CH1</data>
-            <data name="Acc z(m/s²)">CH4</data>
+            <data name="Acc z(m/s²)">accz</data>
         </set>
         <set name="Bins">
             <data name="Bin start (m/s²)">binStart</data>
