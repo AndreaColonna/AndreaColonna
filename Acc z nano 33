@@ -145,7 +145,7 @@
                 <input axis="x">binStart</input>
                 <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
             </graph>
-            <edit label="Bin size" unit="m/s²" default="0.00005" signed="false">
+            <edit label="Bin size" unit="m/s²" default="0.0005" signed="false">
                 <output>binSize</output>
             </edit>
             <value label="Acc z" precision="4" scientific="false" unit="m/s²" factor="1">
