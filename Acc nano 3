@@ -64,7 +64,7 @@
     </output>
     <analysis sleep="0"  onUserInput="false">
          <multiply>
-            <input clear = "false">CH3</input>
+            <input clear = "false">CH5</input>
             <input type="value">9.8066</input>
             <output>acc</output>
         </multiply>
