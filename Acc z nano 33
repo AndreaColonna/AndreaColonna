@@ -22,7 +22,7 @@
             <string original="Bin center (m/s²)">Centro intervallo(m/s²)</string>
             <string original="Count">Conteggi</string>
             <string original="Bin size">Ampiezza intervallo</string>
-            <string original="Average Accy">Accelerazione </string>
+            <string original="Average Accz">Accelerazione </string>
             <string original="Standard deviation">Deviazione standard</string>
         </translation>
     </translations>
@@ -153,13 +153,13 @@
                 <input axis="x">binStart</input>
                 <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
             </graph>
-            <edit label="Bin size" unit="m/s²" default="0.0005" signed="false">
+            <edit label="Bin size" unit="m/s²" default="0.005" signed="false">
                 <output>binSize</output>
             </edit>
-            <value label="Acc z" precision="3" scientific="false" unit="m/s²" factor="1">
+            <value label="Acc z" precision="2" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>
             </value>
-            <value label="Standard deviation" precision="3" scientific="false" unit="m/s²" factor="1">
+            <value label="Standard deviation" precision="2" scientific="false" unit="m/s²" factor="1">
                 <input>deviation</input>
             </value>
             <value label="Count" precision="0" scientific="false" unit="" factor="1">
