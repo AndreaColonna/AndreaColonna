@@ -148,13 +148,13 @@
             <edit label="Bin size" unit="m/s²" default="0.0005" signed="false">
                 <output>binSize</output>
             </edit>
-            <value label="Acc z" precision="4" scientific="false" unit="m/s²" factor="1">
+            <value label="Acc z" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>
             </value>
-            <value label="Standard deviation" precision="4" scientific="false" unit="m/s²" factor="1">
+            <value label="Standard deviation" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>deviation</input>
             </value>
-            <value label="Count" precision="4" scientific="false" unit="" factor="1">
+            <value label="Count" precision="0" scientific="false" unit="" factor="1">
                 <input>count</input>
             </value>
         </view>
