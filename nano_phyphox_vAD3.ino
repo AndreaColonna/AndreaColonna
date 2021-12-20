@@ -164,6 +164,7 @@ void magnetometerChoice() {
 
 
 void pressureChoice() {
+   IMU.end();
     first_time = millis();
     pressure = 1000*BARO.readPressure();
     first_difference_float = ((float)first_time - (float)initial_time) / 1000;
