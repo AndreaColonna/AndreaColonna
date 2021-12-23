@@ -23,7 +23,7 @@
         <container size="500">gaussian</container>
     </data-containers>
     <input>
-        <sensor editor:uuid="101" rate="0" average="false" type="magnetic_field">
+        <sensor rate="0" type="magnetic_field">
             <output component="t">t</output>
             <output component="abs">mag</output>
         </sensor>
