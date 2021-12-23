@@ -33,7 +33,7 @@
     </input>
     <views>
         <view label="Misura di g y">
-            <graph label="g_y" labelX="t (s)" labelY="y Acceleration (m/s²)" partialUpdate="true" style="lines">
+            <graph label="g_y" labelX="t (s)" labelY="y Gravity (m/s²)" partialUpdate="true" style="lines">
                 <input axis="x">t</input>
                 <input axis="y">accY</input>
             </graph>
@@ -49,7 +49,7 @@
             <value label="g_y" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>
             </value>
-            <value label="Standard deviation" precision="2" scientific="false" unit="m/s²" factor="1">
+            <value label="Standard deviation" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>deviation</input>
             </value>
             <value label="Count" precision="0" scientific="false" unit="" factor="1">
