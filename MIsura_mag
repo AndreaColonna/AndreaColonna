@@ -1,7 +1,7 @@
 <phyphox version="1.6" locale="en">
     <title>Campo magnetico/title>
     <category>Mobile</category>
-    <description> Calcolo tramite i metodi statistici del campo magnetico lungo asse y del telefonino.
+    <description> Calcolo tramite i metodi statistici del campo magnetico terrestre.
 
         Questo esperimento mostra semplicemente i dati grezzi dal sensore in un istogramma, che dovrebbe formare una distribuzione gaussiana quando il dispositivo è a riposo. A seconda del rumore del sensore, potresti voler modificare la dimensione dell'intervallo.
     </description>
