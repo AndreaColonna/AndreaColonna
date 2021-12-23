@@ -108,6 +108,7 @@
         </multiply>
 
     </analysis>
+        <views>
         <view label="Misura del campo magnetico">
             <graph label="Campo magnetico" labelX="t (s)" labelY="Magnetism (µT)" partialUpdate="true" style="lines">
                 <input axis="x">t</input>
