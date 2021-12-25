@@ -63,10 +63,10 @@
             <edit label="Bin size" unit="V" default="0.005" signed="false">
                 <output>binSize</output>
             </edit>
-            <value label="Tensione" precision="0" scientific="false" unit="V" factor="1">
+            <value label="Tensione" precision="3" scientific="false" unit="V" factor="1">
                 <input>average</input>
             </value>
-            <value label="Standard deviation" precision="0" scientific="false" unit="V" factor="1">
+            <value label="Standard deviation" precision="3" scientific="false" unit="V" factor="1">
                 <input>deviation</input>
             </value>
             <value label="Count" precision="0" scientific="false" unit="" factor="1">
