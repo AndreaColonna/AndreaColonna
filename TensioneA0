@@ -14,20 +14,20 @@
     <icon>AnaA0</icon> 
 	<color>009297</color> 
     <data-containers>
-	    <container size="0" static="false" init="">CH1</container>
-	    <container size="0" static="false" init="">CH2</container>
-	    <container size="0" static="false" init="">CH3</container>
-	    <container size="0" static="false" init="">CH4</container>
-	    <container size="0" static="false" init="">CH5</container>
-	    <container size="0" static="false" init="">CH0</container>
-		<container size="0">binStart</container>
-		<container size="0">binCount</container>
-		<container size="1">average</container>
-		<container size="1">deviation</container>
-		<container size="1">count</container>
+	<container size="0" static="false" init="">CH1</container>
+	<container size="0" static="false" init="">CH2</container>
+	<container size="0" static="false" init="">CH3</container>
+	<container size="0" static="false" init="">CH4</container>
+	<container size="0" static="false" init="">CH5</container>
+	<container size="0" static="false" init="">CH0</container>
+	<container size="0">binStart</container>
+	<container size="0">binCount</container>
+	<container size="1">average</container>
+	<container size="1">deviation</container>
+	<container size="1">count</container>
         <container size="1">binSize</container>
         <container size="0">temp1</container>
-		<container size="0">temp2</container>
+	<container size="0">temp2</container>
         <container size="1">minX</container>
         <container size="1">maxX</container>
         <container size="500">gaussianX</container>
@@ -79,7 +79,7 @@
             <input clear="false">CH4</input>
             <input as="dx" clear="false">binSize</input>
             <output clear="true">binStart</output>
-			<output clear="true">binCount</output>
+	    <output clear="true">binCount</output>
         </binning>
         <average editor:uuid="209" editor:posx="393.3068161010742" editor:posy="300.3863639831543">
             <input clear="false">CH4</input>
@@ -136,7 +136,7 @@
             <input>temp2</input>
             <input type="value">2.506628275</input>
             <input clear="false">deviation</input>
-			<output>temp1</output>
+	    <output>temp1</output>
         </divide>
         <multiply>
             <input>temp1</input>
