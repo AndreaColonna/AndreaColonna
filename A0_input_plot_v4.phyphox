@@ -1,15 +1,16 @@
 <phyphox version="1.7">
-<title>Questo è un esperimento di prova</title>
-<category>Esperimenti di prova</category>
-<icon>Pro</icon>
+<title>Tensione A0</title>
+<category>Esperimenti elettricità Mobile</category>
+<icon>TA0</icon>
 <color>9dd1ff</color>
-<description>Questo è uno script di prova</description>
+<description>Misura la tensione e la resistenza della porta A0</description>
 <data-containers>
 	    <container size="0" static="false" init="">CH1</container>
 	    <container size="0" static="false" init="">CH2</container>
 	    <container size="0" static="false" init="">CH3</container>
 	    <container size="0" static="false" init="">CH4</container>
 	    <container size="0" static="false" init="">CH0</container>
+		<container size="1">res</container>
 </data-containers>
     <input>
         <bluetooth mode="notification" subscribeOnStart="false" id="Sense">
@@ -31,12 +32,29 @@
                 <input axis="x">CH1</input>
                 <input axis="y">CH2</input>
             </graph>
-            <value label="Tensione" precision="2" scientific="false" unit="V" factor="1">
+            <value label="Tensione" precision="3" scientific="false" unit="V" factor="1">
                 <input>CH2</input>
+            </value>
+            <value label="Resistenza" precision="3" scientific="false" unit="kΩ" factor="1">
+                <input>res</input>
+            </value>
+	</view>
+    <view label="Resistenza A0">
+            <graph label="Resistenza A0" labelX="t (s)" labelY="Resistenza (kΩ)" partialUpdate="true" style="lines">
+                <input axis="x">CH1</input>
+                <input axis="y">res</input>
+            </graph>
+            <value label="Resistenza" precision="3" scientific="false" unit="kΩ" factor="1">
+                <input>res</input>
             </value>
 	</view>
 	</views>
 	<analysis>
+	<divide>
+		<input>CH2</input>
+		<input type="value">15</input>
+		<output>res</output>
+	</divide>
 	</analysis>
     <export>
         <set name="Raw data">
