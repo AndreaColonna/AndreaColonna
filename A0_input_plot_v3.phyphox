@@ -7,7 +7,7 @@
  
  *Questo lavoro è stato rielaborato dal prof. Colonna per il progetto Mobile
  -->
-<phyphox xmlns="http://phyphox.org/xml" xmlns:editor="http://phyphox.org/editor/xml" version="1.7">
+<phyphox version="1.7">
     <title>Input analogico A0</title>
     <category>MOBILE Arduino Nano 33 BLE Sense</category>
     <description>Misura del voltaggio della porta A0.</description>
