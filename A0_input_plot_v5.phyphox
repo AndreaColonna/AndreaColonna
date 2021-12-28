@@ -27,7 +27,7 @@
         </bluetooth>
     </output>
 	<analysis>
-        <formula formula="[1_]*(0,3)^(-1)">
+        <formula formula="[1_]*(0.3)^(-1)">
             <input as="in" clear="false">CH2</input>
             <output as="out">res</output>
         </formula>
