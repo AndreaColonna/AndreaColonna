@@ -1,0 +1,1002 @@
+<phyphox xmlns="http://phyphox.org/xml" xmlns:editor="http://phyphox.org/editor/xml" version="1.7" editor:version="1.0" locale="en">
+    <title>Acoustic Stopwatch</title>
+    <category>Timers</category>
+    <description>Get the time between two acoustic events.
+
+This experiment allows to measure the time between two loud acoustic signals. These can be clicks, beeps, claps etc. as long as they are louder than the environment. You might want to adjust the threshold, giving the level at which the stop watch is triggered (ranging from 0 to 1).
+
+After starting the experiment, the clock will start on the first noise exceeding the threshold and will be stopped on the second noise. To repeat the experiment, clear the data and start again. Make sure that the first noise is short as a long sound might be immediately detected as a stop.</description>
+    <link label="Wiki">http://phyphox.org/wiki/index.php?title=Experiment:_Acoustic_Stopwatch</link>
+    <link label="Video 1">https://youtu.be/uoUm34CnHdE</link>
+    <link label="Video 2">https://youtu.be/zRGh9_a1J7s</link>
+    <icon format="base64">
+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
+    </icon>
+    <translations>
+        <translation locale="de">
+            <title>Akustische Stoppuhr</title>
+            <category>Zeitmessung</category>
+            <description>
+Stoppe die Zeit zwischen zwei akustischen Ereignissen.
+
+Dieses Experiment ermöglicht es dir, die Zeit zwischen zwei akustischen Signalen zu messen. Dies kann ein Klick, ein Piepen, ein Klatschen oder ähnliches sein, solange es lauter ist als der Geräusche der Umgebung. Hierzu muss die Schwelle so eingestellt werden, dass sie über den Umgebungsgeräuschen, aber unter der Lautstärke des Auslösegeräusches liegt (im Bereich von 0 bis 1).
+
+Nachdem das Experiment gestartet wurde, beginnt die Zeitmessung mit dem ersten Geräusch das die Schwelle überschreitet und wird mit dem zweiten Geräusch beendet. Um das Experiment zu wiederholen, lösche die Daten und starte erneut. Achte darauf, dass das Startgeräusch kurz ist, da ein langes Geräusch direkt auch als Stopp interpretiert werden könnte.
+</description>
+            <link label="Video 1">https://youtu.be/-XSTRqhJ6MQ</link>
+            <link label="Video 2">https://youtu.be/fm1QcDtdRX8</link>
+            <string original="Simple">Einfach</string>
+            <string original="Threshold">Schwelle</string>
+            <string original="Minimum Delay">Mindestverzögerung</string>
+            <string original="Time">Zeit</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Ändere die Schwelle auf einen Wert oberhalb der Umgebungsgeräusche, aber unterhalb des Auslösegeräusches (dies kannst du zum Beispiel im Experiment &quot;Audio Oszilloskop&quot; prüfen). Setze außerdem die Mindestverzögerung, um ein kürzeres Auslösen als diese Zeit zu vermeiden (beispielsweise durch Echos oder Hall).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Leider funktioniert dieses Experiment nicht auf langsamen Geräten. Bitte vergleiche es erst mit einer normalen Uhr, um sicherzugehen, dass es wie gewünscht arbeitet.</string>
+            <string original="Sequence">Sequenz</string>
+            <string original="Time 1">Zeit 1</string>
+            <string original="Time 2">Zeit 2</string>
+            <string original="Time 3">Zeit 3</string>
+            <string original="Time 4">Zeit 4</string>
+            <string original="Time 5">Zeit 5</string>
+            <string original="Time 1">Zeit 1</string>
+            <string original="Time 2">Zeit 2</string>
+            <string original="Time 3">Zeit 3</string>
+            <string original="Time 4">Zeit 4</string>
+            <string original="Time 5">Zeit 5</string>
+            <string original="Many">Viele</string>
+            <string original="Events">Ereignisse</string>
+            <string original="Event number">Ereignis-Nummer</string>
+            <string original="Time interval">Zeitintervall</string>
+            <string original="Average interval">Mittleres Intervall</string>
+            <string original="Average rate">Mittlere Rate</string>
+            <string original="Average rate (bpm)">Mittlere Rate (bpm)</string>
+        </translation>
+        <translation locale="cs">
+            <title>Akustické stopky</title>
+            <category>Měření času</category>
+            <description>
+Změří čas mezi dvěma zvukovými událostmi.
+
+Tento experiment umožňuje měřit čas mezi dvěma silnými akustickými signály. Může jít o cvaknutí, pípnutí, tlesknutí apod., stačí když jsou signály hlasitější než hluk v pozadí. Je možné, že kvůli tomu budete chtít nastavit práh pro spuštění jednotlivých měření (rozsah je 0 až 1).
+
+Po spuštění experimentu se stopky zapnou po prvním zvukovém signálu, který překoná zvolený práh, a zastaví se po dalším. Pro opakování experimentu vymažte naměřená data a spusťte jej znovu. První zvuk musí být krátký, neboť dlouhý signál by mohl být rovnou vyhodnocen i jako stopka.
+</description>
+            <string original="Simple">Stručně</string>
+            <string original="Threshold">Práh měření</string>
+            <string original="Minimum Delay">Minimální zpoždění</string>
+            <string original="Time">Čas</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Nastavte práh tak, aby byl veškerý šum z okolí pod ním, avšak spouštěcí zvuk jej přesahoval (tyto hodnoty můžete zjistit pomocí experimentu zvukový rozsah). Dále nastavte minimální zpoždění, abyste zamezili měření událostí odděleným kratším intervalem (ozvěny, zvuky vibrací).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Tento experiment bohužel nefunguje na pomalejších telefonech. Doporučujeme srovnat naměřený čas s měřením na klasických stopkách, abyste si ověřili, že experiment na vašem přístroji funguje správně.</string>
+            <string original="Sequence">Sekvence</string>
+            <string original="Time 1">Čas 1</string>
+            <string original="Time 2">Čas 2</string>
+            <string original="Time 3">Čas 3</string>
+            <string original="Time 4">Čas 4</string>
+            <string original="Time 5">Čas 5</string>
+            <string original="Parallel">Paralelně</string>
+            <string original="Time 1">Čas 1</string>
+            <string original="Time 2">Čas 2</string>
+            <string original="Time 3">Čas 3</string>
+            <string original="Time 4">Čas 4</string>
+            <string original="Time 5">Čas 5</string>
+        </translation>
+        <translation locale="pl">
+            <title>Stoper akustyczny</title>
+            <category>Czasomierze</category>
+            <description>
+Zarejestruj czas upływający między zdarzeniami, którym towarzyszy dźwięk.
+
+W tym eksperymencie można dokonać pomiaru czasu pomiędzy dwoma zdarzeniami, którym towarzyszy sygnał dźwiękowy. Może nim być kliknięcie, alarm, klask, każdy dźwięk o natężeniu przekraczającym poziom dźwięków otoczenia. Możliwe jest określenie warunków wyzwalania, po spełnieniu których stoper zadziała (zakres od 0 do 1).
+
+Po rozpoczęciu eksperymentu stoper uruchomi się przy pierwszym dźwięku przekraczającym poziom wyzwalania i zatrzyma się po kolejnym dźwięku. Aby powtórzyć pomiar należy usunąć wcześniej uzyskane wyniki i ponownie uruchomić stoper. Należy zadbać, by pierwszy z dźwięków był krótkotrwały i nie został jednocześnie zinterpretowany jako sygnał kończący pomiar.
+</description>
+            <string original="Simple">Próbka</string>
+            <string original="Threshold">Poziom wyzwalania</string>
+            <string original="Minimum Delay">Minimalne opóźnienie</string>
+            <string original="Time">Czas</string>
+            <string original="Reset">Wyczyść</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Określ warunki wyzwalania tak, by były powyżej średniego szumu pochodzącego z otoczenia i jednocześnie urządzenie reagowało na sygnał dźwiękowy towarzyszący badanemu zdarzeniu (można do tego celu wykorzystać eksperyment 'Oscylogram audio'. Określenie minimalnego czasy opóźnienia pozwala zapobiec uruchamianiu stopera przez dźwięki otoczenia (wywołane m. in. zjawiskiem echa lub drganiami).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Niestety, stoper akustyczny nie działa prawidłowo na urządzeniach pracujących z niewielką częstotliwością. Przy pierwszym pomiarze należy otrzymane wyniki skonfrontować z wynikami uzyskanymi tradycyjnym stoperem.</string>
+            <string original="Sequence">Międzyczasy</string>
+            <string original="Time 1">Czas 1</string>
+            <string original="Time 2">Czas 2</string>
+            <string original="Time 3">Czas 3</string>
+            <string original="Time 4">Czas 4</string>
+            <string original="Time 5">Czas 5</string>
+            <string original="Reset">Wyczyść</string>
+            <string original="Parallel">Śródczasy</string>
+            <string original="Time 1">Czas 1</string>
+            <string original="Time 2">Czas 2</string>
+            <string original="Time 3">Czas 3</string>
+            <string original="Time 4">Czas 4</string>
+            <string original="Time 5">Czas 5</string>
+            <string original="Reset">Wyczyść</string>
+            <string original="Many">Wiele</string>
+            <string original="Events">Zdarzenia</string>
+            <string original="Event number">Numer zdarzenia</string>
+            <string original="Time interval">Przedział czasu</string>
+            <string original="Average interval">Średni przedział</string>
+            <string original="Average rate">Średnia szybkość</string>
+            <string original="Average rate (bpm)">Średnia szybkość (bpm)</string>
+            <string original="Reset">Wyczyść</string>
+        </translation>
+        <translation locale="nl">
+            <title>Akoestische Chronometer</title>
+            <category>Timers</category>
+            <description>
+Verkrijg de tijd tussen twee akoestische signalen.
+
+Met dit experiment kan de tijd tussen twee luide akoestische signalen worden gemeten. Dit kunnen klikken, piepjes, handgeklap, enz. zijn, zolang ze luider zijn dan het omgevingsgeluid. U kunt de activatiedrempel (het geluidsniveau  waarop de chronometer start) aanpassen (van 0 tot 1).
+
+De klok start bij het eerste geluidsignaal dat de drempel overschrijdt en wordt gestopt bij het tweede geluidsignaal. Als u het experiment wilt herhalen, wist u de gegevens en begint u opnieuw. Zorg ervoor dat het eerste geluidsignaal kort duurt, want een lang geluid wordt mogelijk onmiddellijk als stopsignaal opgevat.
+</description>
+            <string original="Simple">Eenvoudig</string>
+            <string original="Threshold">Drempel</string>
+            <string original="Minimum Delay">Minimale vertraging</string>
+            <string original="Time">Tijd</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Wijzig de drempelwaarde om boven het omgevingsgeluidsniveau te komen, maar onder de triggerniveau (u kunt het 'audioscope' experiment proberen om dit te controleren). Stel ook de minimale vertraging in om triggers te voorkomen die korter zijn dan die tijd (bijvoorbeeld vanwege echo of nagalm).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Helaas werkt dit niet op langzame smartphones. Vergelijk dit eerst met een gewone klok om er zeker van te zijn dat het experiment werkt zoals verwacht.</string>
+            <string original="Sequence">Opeenvolgend</string>
+            <string original="Time 1">Tijdstip 1</string>
+            <string original="Time 2">Tijdstip 2</string>
+            <string original="Time 3">Tijdstip 3</string>
+            <string original="Time 4">Tijdstip 4</string>
+            <string original="Time 5">Tijdstip 5</string>
+            <string original="Time 1">Tijdstip 1</string>
+            <string original="Time 2">Tijdstip 2</string>
+            <string original="Time 3">Tijdstip 3</string>
+            <string original="Time 4">Tijdstip 4</string>
+            <string original="Time 5">Tijdstip 5</string>
+            <string original="Many">Vele</string>
+            <string original="Events">Gebeurtenissen</string>
+            <string original="Event number">Nummer gebeurtenis</string>
+            <string original="Time interval">Tijdsinterval</string>
+            <string original="Average interval">Gemiddeld interval</string>
+            <string original="Average rate">Gemiddelde snelheid</string>
+            <string original="Average rate (bpm)">Gemiddelde frequentie (bpm: per minuut)</string>
+        </translation>
+        <translation locale="ru">
+            <title>Акустический секундомер</title>
+            <category>Таймеры</category>
+            <description>
+Получите время между двумя акустическими событиями.
+
+Этот эксперимент позволяет измерять время между двумя громкими акустическими сигналами. Это могут быть щелчки, звуковые сигналы, хлопки и т. д., если они громче, чем окружающая среда. Вы также можете настроить порог, указав уровень, на котором запускается секундомер (от 0 до 1).
+
+После запуска эксперимента часы запускаются по первому звуку, превышающему пороговое значение, и будут остановлены после второго звука. Чтобы повторить эксперимент, очистите данные и начните снова. Убедитесь, что первый звук достаточно короткий, так как длительный звук может быть идентифицирован как сигнал к остановке измерения.
+</description>
+            <string original="Simple">Значение</string>
+            <string original="Threshold">Порог</string>
+            <string original="Minimum Delay">Минимальная задержка</string>
+            <string original="Time">Время</string>
+            <string original="Reset">Сброс</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Измените предельное значение выше уровня шума окружающей среды, но ниже порога (вы можете попробовать эксперимент «Акустический диапазон», чтобы проверить их). Также установите минимальную задержку, чтобы избежать триггеров короче, чем это время (например, из-за эха или реверберации).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">К сожалению, это не будет работать на телефонах данного типа. Сравните с обычными часами, чтобы убедиться, что эксперимент работает должным образом.</string>
+            <string original="Sequence">Последовательность</string>
+            <string original="Time 1">Время 1</string>
+            <string original="Time 2">Время 2</string>
+            <string original="Time 3">Время 3</string>
+            <string original="Time 4">Время 4</string>
+            <string original="Time 5">Время 5</string>
+            <string original="Reset">Сброс</string>
+            <string original="Parallel">Сравнить</string>
+            <string original="Time 1">Время 1</string>
+            <string original="Time 2">Время 2</string>
+            <string original="Time 3">Время 3</string>
+            <string original="Time 4">Время 4</string>
+            <string original="Time 5">Время 5</string>
+            <string original="Reset">Сброс</string>
+            <string original="Many">Многие</string>
+            <string original="Events">События</string>
+            <string original="Event number">Номер события</string>
+            <string original="Time interval">Временной интервал</string>
+            <string original="s">с</string>
+            <string original="Average interval">Средний интервал</string>
+            <string original="Average rate">Средняя частота</string>
+            <string original="Average rate (bpm)">Средняя частота (bpm)</string>
+            <string original="Reset">Сброс</string>
+        </translation>
+        <translation locale="it">
+            <title>Cronometro acustico</title>
+            <category>Misura di tempo</category>
+            <description>
+Misura il tempo fra due eventi acustici.
+
+Questo esperimento permette di misurare il tempo fra due segnali acustici. Questi possono essere click, beeps, applausi etc, fintanto che son suoni più forti del rumore ambientale. Puoi regolare la soglia minima per far partire il cronometro acustico (su una scala da 0 a 1).
+</description>
+            <string original="Simple">Valori</string>
+            <string original="Threshold">Soglia</string>
+            <string original="Minimum Delay">Ritardo minimo</string>
+            <string original="Time">Tempo</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Aggiusta il valore di soglia al di sopra del rumore di fondo ma al di sotto del rumore del trigger (puoi controllare questi valori con l’esperimento “Audioscopio”). Aggiusta il ritardo minimo per evitare trigger più brevi di questo valore (dovuti per esempio ad eco).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Purtroppo questo esperimento non funziona su tutti i telefoni. Per assicurarti che l’esperimento funzioni correttamente, confronta il tempo misurato dal cronometro acustico con quello misurato con un normale orologio.</string>
+            <string original="Sequence">Serie</string>
+            <string original="Time 1">Tempo 1</string>
+            <string original="Time 2">Tempo 2</string>
+            <string original="Time 3">Tempo 3</string>
+            <string original="Time 4">Tempo 4</string>
+            <string original="Time 5">Tempo 5</string>
+            <string original="Parallel">Parallelo</string>
+            <string original="Time 1">Tempo 1</string>
+            <string original="Time 2">Tempo 2</string>
+            <string original="Time 3">Tempo 3</string>
+            <string original="Time 4">Tempo 4</string>
+            <string original="Time 5">Tempo 5</string>
+            <string original="Many">Molti</string>
+            <string original="Events">Eventi</string>
+            <string original="Event number">Numero evento</string>
+            <string original="Time interval">Intervallo di tempo</string>
+            <string original="Average interval">Intervallo medio</string>
+            <string original="Average rate">Frequenza media</string>
+            <string original="Average rate (bpm)">Frequenza media (ev/m)</string>
+        </translation>
+        <translation locale="el">
+            <title>Ακουστικό χρονόμετρο</title>
+            <category>Χρονόμετρα</category>
+            <description>
+Βρείτε τον χρόνο ανάμεσα σε δύο ακουστικά γεγονότα.
+
+Αυτό το πείραμα επιτρέπει να μετρήσεις τον χρόνο ανάμεσα σε δύο δυνατά ακουστικά σήματα. Μπορεί να είναι κλικ, μπιπ, μπαμ κ.α αρκεί να είναι δυνατότερα από τους θορύβους του περιβάλλοντος. Ίσως χρειαστεί να ρυθμίσετε το κατώφλι ενεργοποίησης δίνοντας τη στάθμη πάνω από την οποία το χρονόμετρο θα ενεργοποιηθεί (στην κλίμακα από 0 έως 1).
+Μετά την έναρξη του πειράματος, το ρολόϊ θα ξεκινήσει στον πρώτο θόρυβο που ξεπερνά το κατώφλι και θα σταματήσει στον δεύτερο. Για να επαναληφθεί το πείραμα καθαρίστε τα δεδομένα και ξεκινήστε ξανά. Βεβαιωθείτε ότι ο πρώτος ήχος είναι κοφτός καθώς ένας μακρύς ήχος θα μπορούσε να θεωρηθεί δεύτερος ήχος και να δοθεί εντολή παύσης.
+</description>
+            <string original="Simple">Απλό</string>
+            <string original="Threshold">Κατώφλι ενεργοπ.</string>
+            <string original="Minimum Delay">Ελάχιστη καθυστέρηση</string>
+            <string original="Time">Χρόνος</string>
+            <string original="Reset">Επαναφορά</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Αλλάξτε το κατώφλι ενεργοποίησης ώστε να είναι πάνω από τη στάθμη του περιβαλλοντικού θορύβου, αλλά κάτω από τον ήχο ενεργοποίησης (μπορείτε να το δοκιμάσετε χρησιμοποιώντας το πείραμα με τον ηχητικό παλμογράφο). Επίσης θέστε την ελάχιστη καθυστέρηση για να αποφύγεται ενεργοποιήσεις μικρότερες από αυτό το διάστημα (για παράδειγμα λόγω αντηχήσεων ή ηχούς).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Δυστυχώς, δεν θα λειτουργήσει σε αργά τηλέφωνα. Παρακαλούμε συγκρίνετε αρχικά με ένα κανονικό ρολοϊ, ώστε να βεβαιωθείτε ότι το πείραμα λειτουργεί όπως αναμένονταν.</string>
+            <string original="Sequence">Σειριακό</string>
+            <string original="Time 1">Χρόνος 1</string>
+            <string original="Time 2">Χρόνος 2</string>
+            <string original="Time 3">Χρόνος 3</string>
+            <string original="Time 4">Χρόνος 4</string>
+            <string original="Time 5">Χρόνος 5</string>
+            <string original="Reset">Επαναφορά</string>
+            <string original="Parallel">Παράλληλο</string>
+            <string original="Time 1">Χρόνος 1</string>
+            <string original="Time 2">Χρόνος 2</string>
+            <string original="Time 3">Χρόνος 3</string>
+            <string original="Time 4">Χρόνος 4</string>
+            <string original="Time 5">Χρόνος 5</string>
+            <string original="Reset">Επαναφορά</string>
+            <string original="Many">Πολλά</string>
+            <string original="Events">Γεγονότα</string>
+            <string original="Event number">Αριθμός γεγονότος</string>
+            <string original="Time interval">Χρονικό διάστημα</string>
+            <string original="Average interval">Μέσο διάστημα</string>
+            <string original="Average rate">Μέσος ρυθμός</string>
+            <string original="Average rate (bpm)">Μέσος ρυθμός (bpm)</string>
+            <string original="Reset">Επαναφορά</string>
+        </translation>
+        <translation locale="ja">
+            <title>音響ストップウォッチ</title>
+            <category>タイマー</category>
+            <description>
+二つの音響イベントの時間差計測.
+
+二つの大きな音響イベントの時間間隔の測定が可能なストップウォッチ．音響イベントはクリック，ビープ音，クラップなどを用いることが可能であるが，環境音より十分に大きい音響イベントであることが必要です．ストップウォッチが動作する音響レベルを設定することが可能です．(0から1までの範囲において)
+
+実験開始後，ストップウォッチは音響イベントで開始し，次の音響イベントで停止する．繰り返し実験するためにはデータを消去し，再開してください．長い音はすぐにストップとして認識されてしまうため，最初の音響イベントは短いものとしてください．
+</description>
+            <string original="Simple">シンプル</string>
+            <string original="Threshold">閾値</string>
+            <string original="Minimum Delay">ホールドオフ時間</string>
+            <string original="Time">時間</string>
+            <string original="Reset">リセット</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">環境ノイズレベル以上となるように閾値を変更 (聴音器により確認可能).また最小遅延時間は，設定値よりも短い信号を無視する設定 (ex.反響音や残響音等の意図しないタイマー動作を防止する)．</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">残念ながら，このアプリケーションは動作速度が遅いスマートフォンでは動作をしません．予測通り実験が動作するかを確認するために，はじめに通常のストップウォッチの計測結果と比較してください．</string>
+            <string original="Sequence">ラップ</string>
+            <string original="Time 1">時間 1</string>
+            <string original="Time 2">時間 2</string>
+            <string original="Time 3">時間 3</string>
+            <string original="Time 4">時間 4</string>
+            <string original="Time 5">時間 5</string>
+            <string original="Reset">リセット</string>
+            <string original="Parallel">スプリット</string>
+            <string original="Time 1">時間 1</string>
+            <string original="Time 2">時間 2</string>
+            <string original="Time 3">時間 3</string>
+            <string original="Time 4">時間 4</string>
+            <string original="Time 5">時間 5</string>
+            <string original="Reset">リセット</string>
+            <string original="Many">履歴</string>
+            <string original="Events">イベント</string>
+            <string original="Event number">イベント番号</string>
+            <string original="Time interval">時間間隔</string>
+            <string original="Average interval">平均時間間隔</string>
+            <string original="Average rate">平均周波数</string>
+            <string original="Average rate (bpm)">平均ビートレート (bpm)</string>
+            <string original="Reset">リセット</string>
+        </translation>
+        <translation locale="pt">
+            <title>Cronômetro Acústico</title>
+            <category>Temporizadores</category>
+            <description>
+Tomada de tempo entre dois eventos acústicos.
+
+Estes experimento permite a medida de tempo entre dois sinais sonoros altos. O sinal pode ser batidas, palmas, bips, etc., desde que eles sejam mais altos que o som ambiente. É possível ajustar o limiar, selecionando o nível sonoro em que o cronômetro é disparado (entre 0 a 1).
+
+Depois de começar o experimento, o cronômetro dispara no primeiro barulho que exceder o limite e irá parar no segundo ruído. Para repetir o experimento, limpe os dados e comece novamente. O primeiro sinal deve ser curto pois um som longo poderá ser interpretado como o sinal para parar.
+</description>
+            <string original="Simple">Simples</string>
+            <string original="Threshold">Limiar</string>
+            <string original="Minimum Delay">Intervalo Mínimo</string>
+            <string original="Time">Tempo</string>
+            <string original="Reset">Reiniciar</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Mude o limiar para que fique acima do nível de ruído mas abaixo do barulho de disparo (você pode usar o experimento do osciloscópio de som para ver os valores). Também defina o atraso mínimo para evitar que o barulho do disparo seja menor que esse tempo (por exemplo devido a eco ou reverberação).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Infelizmente, isto não irá funcionar em aparelhos lentos. Por favor, compara com um cronômetro normal primeiro, para garantir que o experimento funcione como esperado.</string>
+            <string original="Sequence">Sequência</string>
+            <string original="Time 1">Tempo 1</string>
+            <string original="Time 2">Tempo 2</string>
+            <string original="Time 3">Tempo 3</string>
+            <string original="Time 4">Tempo 4</string>
+            <string original="Time 5">Tempo 5</string>
+            <string original="Reset">Reiniciar</string>
+            <string original="Parallel">Paralelo</string>
+            <string original="Time 1">Tempo 1</string>
+            <string original="Time 2">Tempo 2</string>
+            <string original="Time 3">Tempo 3</string>
+            <string original="Time 4">Tempo 4</string>
+            <string original="Time 5">Tempo 5</string>
+            <string original="Reset">Reiniciar</string>
+            <string original="Many">Muitos</string>
+            <string original="Events">Eventos</string>
+            <string original="Event number">Número do Evento</string>
+            <string original="Time interval">Intervalo de tempo</string>
+            <string original="Average interval">Intervalo médio</string>
+            <string original="Average rate">Taxa média</string>
+            <string original="Average rate (bpm)">Taxa média (bpm)</string>
+            <string original="Reset">Reiniciar</string>
+        </translation>
+        <translation locale="tr">
+            <title>Akustik Kronometre</title>
+            <category>Zamanlayıcılar</category>
+            <description>
+İki akustik olay arasındaki zamanı ölçün.
+
+Bu deney, iki yüksek sesli akustik sinyal arasındaki süreyi ölçmeyi sağlar. Bunlar, çevreden daha yüksek sesli olduğu sürece tıklamalar, bip sesleri, alkışlar vb. olabilir. Eşiği ayarlamak ve kronometrenin tetiklendiği seviyeyi (0'dan 1'e kadar) vermek isteyebilirsiniz.
+Deneyi başlattıktan sonra, saat, eşiği aşan ilk gürültüden başlayacak ve ikinci gürültüde durdurulacaktır. Deneyi tekrarlamak için verileri temizleyin ve tekrar başlayın. İlk sesin kısa süreli olduğundan emin olun, çünkü uzun ses hemen bir durdurma olarak algılanabilir.
+</description>
+            <string original="Simple">Basit</string>
+            <string original="Threshold">Eşik</string>
+            <string original="Minimum Delay">Minimum Gecikme</string>
+            <string original="Time">Zaman</string>
+            <string original="Reset">Sıfırla</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Eşiği çevre gürültü seviyesinin üzerinde, ancak tetikleme gürültüsünün altında olacak şekilde değiştirin (bunları kontrol etmek için ses kapsam deneyini yapabilirsiniz). Ayrıca, tetikleyicilerin o andan daha kısa sürmesini önlemek için (örneğin yankı veya yankılanma nedeniyle) minimum gecikmeyi ayarlayın.</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Ne yazık ki, bu deney yavaş telefonlarda çalışmaz. Deneyin beklendiği gibi çalıştığından emin olmak için lütfen önce bir saatle karşılaştırın.</string>
+            <string original="Sequence">Sıralama</string>
+            <string original="Time 1">Zaman 1</string>
+            <string original="Time 2">Zaman 2</string>
+            <string original="Time 3">Zaman 3</string>
+            <string original="Time 4">Zaman 4</string>
+            <string original="Time 5">Zaman 5</string>
+            <string original="Reset">Sıfırla</string>
+            <string original="Parallel">Paralel</string>
+            <string original="Time 1">Zaman 1</string>
+            <string original="Time 2">Zaman 2</string>
+            <string original="Time 3">Zaman 3</string>
+            <string original="Time 4">Zaman 4</string>
+            <string original="Time 5">Zaman 5</string>
+            <string original="Reset">Sıfırla</string>
+            <string original="Many">Birçok</string>
+            <string original="Events">Olaylar</string>
+            <string original="Event number">Olay numarası</string>
+            <string original="Time interval">Zaman aralığı</string>
+            <string original="Average interval">Ortalama aralığı</string>
+            <string original="Average rate">Ortalama oran</string>
+            <string original="Average rate (bpm)">Ortalama oranı (bpm)</string>
+            <string original="Reset">Sıfırla</string>
+        </translation>
+        <translation locale="zh_Hant">
+            <title>聲學碼表</title>
+            <category>計時器</category>
+            <description>
+求得兩個聲學事件間的時間。
+
+	本實驗可以量測在兩個大的聲音訊號間的時間，這訊號可以是敲擊聲、嘟嘟聲或是拍手聲…等，只要他們比環境的聲音還要大。你可能會想要調整觸發門檻，以決定裝置觸發的時機。
+
+	在實驗開始後，時鐘會在第一個超過門檻的聲音出現後開始，並於第二個超過門檻的聲音結束。若您要再做一次實驗，可直接清除數據並重來。確保一開始的聲音必須夠短以免系統將過長的聲音訊號判斷成兩個聲音事件使計時器立即停止。
+</description>
+            <string original="Simple">簡易</string>
+            <string original="Threshold">門檻</string>
+            <string original="Minimum Delay">最小延遲</string>
+            <string original="Time">時間</string>
+            <string original="Reset">重置</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">你可以調整門檻使之高於環境音量，但其必須小於處發聲音的音量（你可以利用聲學觀測器查看），並且調整最小延遲以防止重複觸發（如回音或反射的實驗）。</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">不幸地是，這在較慢的手機上並不能使用。請先將之與標準時鐘比較，以確保該實驗能如期地運行。</string>
+            <string original="Sequence">序列</string>
+            <string original="Time 1">時間 1</string>
+            <string original="Time 2">時間 2</string>
+            <string original="Time 3">時間 3</string>
+            <string original="Time 4">時間 4</string>
+            <string original="Time 5">時間 5</string>
+            <string original="Reset">重置</string>
+            <string original="Parallel">平行序列</string>
+            <string original="Time 1">時間 1</string>
+            <string original="Time 2">時間 2</string>
+            <string original="Time 3">時間 3</string>
+            <string original="Time 4">時間 4</string>
+            <string original="Time 5">時間 5</string>
+            <string original="Reset">重置</string>
+            <string original="s">秒</string>
+            <string original="Reset">重置</string>
+        </translation>
+        <translation locale="fr">
+            <title>Chronomètre sonore</title>
+            <category>Chronomètres</category>
+            <description>
+Chronomètre le temps entre deux sons.
+
+Cette expérience mesure le temps entre deux forts signaux acoustiques. Il peut s'agir de clics, de bips, de cris, etc. tant qu'ils sont plus forts que le bruit ambiant. Vous pouvez ajuster le seuil au-delà duquel le chronomètre est déclenché.
+
+Quand l’expérience est lancée, le chronomètre démarre avec le premier son qui dépasse le seuil, et s'arrête avec le second. Pour répéter l'expérience, effacez les données et recommencez. Assurez-vous que le premier bruit est suffisamment bref, car un son trop long peut déclencher à la fois le départ et l’arrêt du chronomètre.
+</description>
+            <string original="Simple">Composantes</string>
+            <string original="Threshold">Seuil</string>
+            <string original="Minimum Delay">Délai minimum</string>
+            <string original="Time">Durée</string>
+            <string original="Reset">Remise à zéro</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Choisissez un seuil plus élevé que le bruit ambiant, mais plus bas que le son de déclenchement (vous pouvez utiliser l'expérience « Mesure du son » pour cela). La valeur du délai minimum doit être plus grande que la durée du son qui déclenche le lancement du chronomètre, afin que ce son ne déclenche pas également l'arrêt du chronomètre.</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Malheureusement certains téléphones sont trop lents pour cette expérience. Comparez une fois vos résultats à ceux d'un autre chronomètre pour vérifier que cette expérience fonctionne correctement.</string>
+            <string original="Sequence">Répété</string>
+            <string original="Time 1">Temps 1</string>
+            <string original="Time 2">Temps 2</string>
+            <string original="Time 3">Temps 3</string>
+            <string original="Time 4">Temps 4</string>
+            <string original="Time 5">Temps 5</string>
+            <string original="Reset">Remise à zéro</string>
+            <string original="Parallel">En parallèle</string>
+            <string original="Time 1">Temps 1</string>
+            <string original="Time 2">Temps 2</string>
+            <string original="Time 3">Temps 3</string>
+            <string original="Time 4">Temps 4</string>
+            <string original="Time 5">Temps 5</string>
+            <string original="Reset">Remise à zéro</string>
+            <string original="Many">Statistiques</string>
+            <string original="Events">Évènements</string>
+            <string original="Event number">Numéro de l'évènement</string>
+            <string original="Time interval">Temps mesuré</string>
+            <string original="Average interval">Moyenne de l'intervalle de temps</string>
+            <string original="Average rate">Fréquence moyenne</string>
+            <string original="Average rate (bpm)">Fréquence moyenne (bpm)</string>
+            <string original="Reset">Remise à zéro</string>
+        </translation>
+        <translation locale="vi">
+            <title>Đồng hồ bấm giờ âm</title>
+            <category>Đồng hồ</category>
+            <description>
+Đo thời gian giữa hai tín hiệu âm thanh.
+
+Thí nghiệm này cho phép đo thời gian giữa hai tín hiệu âm thanh lớn. Nó có thể là tiếng bíp, tiếng vỗ tay, miễn là chúng to hơn môi trường. Bạn có thể muốn điều chỉnh ngưỡng, đưa ra mức độ đồng hồ bấm giờ được kích hoạt (dao động từ 0 đến 1).
+
+Sau khi bắt đầu thí nghiệm, đồng hồ sẽ bắt đầu chạy khi tiếng ồn đầu tiên vượt quá ngưỡng và sẽ dừng khi có tiếng ồn thứ hai. Để lặp lại thí nghiệm, xóa dữ liệu và bắt đầu lại. Đảm bảo rằng tiếng ồn đầu tiên phải ngắn vì âm thanh dài có thể được phát hiện ngay lập tức như một kích hoạt dừng.
+</description>
+            <string original="Simple">Đơn giản</string>
+            <string original="Threshold">Ngưỡng</string>
+            <string original="Minimum Delay">Độ trễ tối thiểu</string>
+            <string original="Time">Thời gian</string>
+            <string original="Reset">Đặt lại</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Thay đổi ngưỡng ở trên mức tiếng ồn môi trường, nhưng dưới mức nhiễu kích hoạt (bạn có thể thử thí nghiệm độ to âm thanh để kiểm tra các mức này). Đồng thời đặt độ trễ tối thiểu để tránh các kích hoạt ngắn hơn thời gian đó (ví dụ do phản xạ âm).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Thật không may, cái này sẽ không hoạt động trên điện thoại chậm. Vui lòng so sánh với đồng hồ thông thường trước, để đảm bảo rằng thí nghiệm đang hoạt động như mong đợi.</string>
+            <string original="Sequence">Nối tiếp</string>
+            <string original="Time 1">Thời gian 1</string>
+            <string original="Time 2">Thời gian 2</string>
+            <string original="Time 3">Thời gian 3</string>
+            <string original="Time 4">Thời gian 4</string>
+            <string original="Time 5">Thời gian 5</string>
+            <string original="Reset">Đặt lại</string>
+            <string original="Parallel">Song Song</string>
+            <string original="Time 1">Thời gian 1</string>
+            <string original="Time 2">Thời gian 2</string>
+            <string original="Time 3">Thời gian 3</string>
+            <string original="Time 4">Thời gian 4</string>
+            <string original="Time 5">Thời gian 5</string>
+            <string original="Reset">Đặt lại</string>
+            <string original="Many">Nhiều</string>
+            <string original="Events">Các sự kiện</string>
+            <string original="Event number">Số chẵn</string>
+            <string original="Time interval">Khoảng thời gian</string>
+            <string original="Average interval">Khoảng trung bình</string>
+            <string original="Average rate">Tần số trung bình</string>
+            <string original="Average rate (bpm)">Tốc độ trung bình (bpm)</string>
+            <string original="Reset">Đặt lại</string>
+        </translation>
+        <translation locale="zh_Hans">
+            <title>声学秒表</title>
+            <category>计时器</category>
+            <description>
+获得两个声音事件间的时间。
+
+本实验能够测量两个响亮声音信号间的时间间隔。这些信号可以是敲击声、嘟嘟声或拍手声...等，只要他们比环境声音大。你可能需要调整阈值，给出触发的级别（从0到1）。
+
+开始实验后，时钟会在第一个超过阈值的噪声出现时启动并在第二个超过阈值的噪声出现时暂停。想要重复实验，清楚数据并再次启动。确保第一个噪声足够短促以免过长的声音被检测成停止信号。
+</description>
+            <string original="Simple">简明值</string>
+            <string original="Threshold">阈值</string>
+            <string original="Minimum Delay">最小时延</string>
+            <string original="Time">时间</string>
+            <string original="Reset">复位</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">调整阈值使其高于环境噪音，但低于触发值（可以尝试利用“音频范围”检测这些值）。并设置最小时延来避免重复触发（例如回声或混响）。</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">不幸地是，这在慢速手机上并不能实现。请先将其与常规的闹钟相比较，以确保该实验能按预期运行。</string>
+            <string original="Sequence">序列</string>
+            <string original="Time 1">时间 1</string>
+            <string original="Time 2">时间 2</string>
+            <string original="Time 3">时间 3</string>
+            <string original="Time 4">时间 4</string>
+            <string original="Time 5">时间 5</string>
+            <string original="Reset">复位</string>
+            <string original="Parallel">并行</string>
+            <string original="Time 1">时间 1</string>
+            <string original="Time 2">时间 2</string>
+            <string original="Time 3">时间 3</string>
+            <string original="Time 4">时间 4</string>
+            <string original="Time 5">时间 5</string>
+            <string original="Reset">复位</string>
+            <string original="Many">多任务</string>
+            <string original="Events">任务</string>
+            <string original="Event number">任务数</string>
+            <string original="Time interval">事件间隔</string>
+            <string original="s">秒</string>
+            <string original="Average interval">平均间隔</string>
+            <string original="Average rate">平均频率</string>
+            <string original="Average rate (bpm)">平均频率（次/分钟）</string>
+            <string original="Reset">复位</string>
+        </translation>
+        <translation locale="sr">
+            <title>Akustična štoperica</title>
+            <category>Tajmeri</category>
+            <description>
+Izmerite vreme između dva akustična događaja.
+
+Ovaj eksperiment omogućava merenje vremena između dva jaka zvučna signala. To mogu biti škljocanja, zvučni signali, pljeskanje itd. Sve dok su glasniji od okruženja. Možda ćete želeti da podesite prag, dajući nivo na kojem se aktivira štoperica (u rasponu od 0 do 1).
+
+Nakon pokretanja eksperimenta, sat će početi sa prvim šumom koji prelazi prag i bit će zaustavljen na drugom zvuku. Da biste ponovili eksperiment, obrišite podatke i počnite ponovo. Uverite se da je prvi šum kratak, jer se dugačak zvuk može odmah otkriti kao zaustavljanje.
+</description>
+            <string original="Simple">Jednostavno</string>
+            <string original="Threshold">Prag</string>
+            <string original="Minimum Delay">Minimalno zakašnjenje</string>
+            <string original="Time">Vreme</string>
+            <string original="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation).">Promenite prag da bude iznad nivoa pozadinske buke, ali ga spustite ispod zvuka okidača (možete probati eksperiment Zvučno polje radi provere). Takođe, postavite minimalno zakašnjenje kako biste izbegli okidače kraće od tog vremena (na primer, zbog eha ili odjeka).</string>
+            <string original="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected.">Nažalost, ovo neće funkcionisati na sporim telefonima. Molimo prvo uporedite sa regularnim satom, kako biste se uverili da eksperiment radi kako treba.</string>
+            <string original="Sequence">Niz</string>
+            <string original="Time 1">Vreme 1</string>
+            <string original="Time 2">Vreme 2</string>
+            <string original="Time 3">Vreme 3</string>
+            <string original="Time 4">Vreme 4</string>
+            <string original="Time 5">Vreme 5</string>
+            <string original="Parallel">Paralelno</string>
+            <string original="Time 1">Vreme 1</string>
+            <string original="Time 2">Vreme 2</string>
+            <string original="Time 3">Vreme 3</string>
+            <string original="Time 4">Vreme 4</string>
+            <string original="Time 5">Vreme 5</string>
+            <string original="Many">Više</string>
+            <string original="Events">Dogadjaji</string>
+            <string original="Event number">Broj dogadjaja</string>
+            <string original="Time interval">Vremenski interval</string>
+            <string original="Average interval">Prosečni interval</string>
+            <string original="Average rate">Prosečna stopa</string>
+            <string original="Average rate (bpm)">Prosečna stopa (bpm)</string>
+        </translation>
+    </translations>
+    <data-containers>
+        <container size="1" static="false">threshold</container>
+        <container size="1" static="false">mindelay</container>
+        <container size="16384" static="false">recording</container>
+        <container size="1" static="false">rate</container>
+        <container size="1" static="false">i</container>
+        <container size="1" static="false">i2</container>
+        <container size="1" static="false">t</container>
+        <container size="1" static="false">limit</container>
+        <container size="1" static="false">max</container>
+        <container size="1" static="false">last</container>
+        <container size="0" static="false">tlist</container>
+        <container size="0" static="false">dtlist</container>
+        <container size="0" static="false">tindex</container>
+        <container size="1" static="false">tcount</container>
+        <container size="1" static="false">tcount-1</container>
+        <container size="1" static="false">avgInterval</container>
+        <container size="1" static="false">avgRate</container>
+        <container size="1" static="false">avgBPM</container>
+        <container size="1" static="false">t0</container>
+        <container size="1" static="false">t1</container>
+        <container size="1" static="false">t2</container>
+        <container size="1" static="false">t3</container>
+        <container size="1" static="false">t4</container>
+        <container size="1" static="false">t5</container>
+        <container size="1" static="false">t0effective</container>
+        <container size="1" static="false">t1effective</container>
+        <container size="1" static="false">t2effective</container>
+        <container size="1" static="false">t3effective</container>
+        <container size="1" static="false">t4effective</container>
+        <container size="1" static="false">t5effective</container>
+        <container size="1" static="false">tmax</container>
+        <container size="1" static="false">dt01</container>
+        <container size="1" static="false">dt02</container>
+        <container size="1" static="false">dt03</container>
+        <container size="1" static="false">dt04</container>
+        <container size="1" static="false">dt05</container>
+        <container size="1" static="false">dt12</container>
+        <container size="1" static="false">dt23</container>
+        <container size="1" static="false">dt34</container>
+        <container size="1" static="false">dt45</container>
+        <container size="1" static="false">count</container>
+        <container size="1" init="0" static="false">index</container>
+        <container size="1" static="false">t (1)</container>
+        <container size="1" static="false">last (1)</container>
+        <container size="1" static="false">t (2)</container>
+        <container size="0" static="false">dtlist (1)</container>
+        <container size="1" static="false">t0 (1)</container>
+        <container size="1" static="false">t1 (1)</container>
+        <container size="1" static="false">t2 (1)</container>
+        <container size="1" static="false">t3 (1)</container>
+        <container size="1" static="false">t4 (1)</container>
+        <container size="1" static="false">t5 (1)</container>
+    </data-containers>
+    <input>
+        <audio editor:uuid="101" editor:posx="100" editor:posy="250" rate="48000">
+            <output>recording</output>
+            <output component="rate">rate</output>
+        </audio>
+    </input>
+    <output>
+    </output>
+    <analysis sleep="0"  onUserInput="false">
+        <count editor:uuid="149" editor:posx="500" editor:posy="100">
+            <input as="buffer" clear="false">recording</input>
+            <output as="count">count</output>
+        </count>
+        <max editor:uuid="150" editor:posx="750" editor:posy="350" multiple="false">
+            <input as="y">recording</input>
+            <output as="max">max</output>
+            <output as="position">i</output>
+        </max>
+        <add editor:uuid="151" editor:posx="1000" editor:posy="600">
+            <input as="summand">i</input>
+            <input as="summand" clear="false">index</input>
+            <output as="sum">i2</output>
+        </add>
+        <divide editor:uuid="152" editor:posx="1250" editor:posy="850">
+            <input as="dividend">i2</input>
+            <input as="divisor" clear="false">rate</input>
+            <output as="quotient">t (2)</output>
+        </divide>
+        <if editor:uuid="153" editor:posx="1500" editor:posy="1100" less="false" equal="false" greater="true">
+            <input as="a" clear="false">max</input>
+            <input as="b" clear="false">threshold</input>
+            <input as="true" clear="false">t (2)</input>
+            <input as="false" type="value">0</input>
+            <output as="result">t (2)</output>
+        </if>
+        <const editor:uuid="154" editor:posx="1750" editor:posy="1350">
+            <output as="out">last (1)</output>
+        </const>
+        <append editor:uuid="155" editor:posx="2000" editor:posy="1600">
+            <input as="in" clear="false">tlist</input>
+            <output as="out" clear="false">last (1)</output>
+        </append>
+        <add editor:uuid="156" editor:posx="2250" editor:posy="1850">
+            <input as="summand" clear="false">last (1)</input>
+            <input as="summand" clear="false">mindelay</input>
+            <output as="sum">limit</output>
+        </add>
+        <if editor:uuid="157" editor:posx="2500" editor:posy="2100" less="true" equal="true" greater="false">
+            <input as="a" clear="false">limit</input>
+            <input as="b" clear="false">t (2)</input>
+            <input as="true" clear="false">t (2)</input>
+            <input as="false" type="value">0</input>
+            <output as="result">t (2)</output>
+        </if>
+        <if editor:uuid="158" editor:posx="2750" editor:posy="2350" less="false" equal="false" greater="true">
+            <input as="a" clear="false">t (2)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">t (2)</input>
+            <output as="result" clear="false">tlist</output>
+        </if>
+        <differentiate editor:uuid="159" editor:posx="3000" editor:posy="2600">
+            <input as="in" clear="false">tlist</input>
+            <output as="out">dtlist (1)</output>
+        </differentiate>
+        <average editor:uuid="160" editor:posx="3250" editor:posy="2850">
+            <input as="buffer" clear="false">dtlist (1)</input>
+            <output as="average">avgInterval</output>
+        </average>
+        <divide editor:uuid="161" editor:posx="3500" editor:posy="3100">
+            <input as="dividend" type="value">1</input>
+            <input as="divisor" clear="false">avgInterval</input>
+            <output as="quotient">avgRate</output>
+        </divide>
+        <multiply editor:uuid="162" editor:posx="3750" editor:posy="3350">
+            <input as="factor" clear="false">avgRate</input>
+            <input as="factor" type="value">60</input>
+            <output as="product">avgBPM</output>
+        </multiply>
+        <append editor:uuid="163" editor:posx="4000" editor:posy="3600">
+            <input as="in" type="value">0</input>
+            <output as="out" clear="false">dtlist (1)</output>
+        </append>
+        <count editor:uuid="164" editor:posx="4250" editor:posy="3850">
+            <input as="buffer" clear="false">tlist</input>
+            <output as="count">tcount</output>
+        </count>
+        <subtract editor:uuid="165" editor:posx="4500" editor:posy="4100">
+            <input as="minuend" clear="false">tcount</input>
+            <input as="subtrahend" type="value">1</input>
+            <output as="difference">tcount-1</output>
+        </subtract>
+        <ramp editor:uuid="166" editor:posx="4750" editor:posy="4350">
+            <input as="start" type="value">0</input>
+            <input as="stop">tcount-1</input>
+            <input as="length">tcount</input>
+            <output as="out">tindex</output>
+        </ramp>
+        <add editor:uuid="167" editor:posx="5000" editor:posy="4600">
+            <input as="summand" clear="false">index</input>
+            <input as="summand">count</input>
+            <output as="sum">index</output>
+        </add>
+        <divide editor:uuid="168" editor:posx="5250" editor:posy="4850">
+            <input as="dividend" clear="false">index</input>
+            <input as="divisor" clear="false">rate</input>
+            <output as="quotient">tmax</output>
+        </divide>
+        <const editor:uuid="169" editor:posx="5500" editor:posy="5100">
+            <output as="out">t0 (1)</output>
+        </const>
+        <const editor:uuid="170" editor:posx="5750" editor:posy="5350">
+            <output as="out">t1 (1)</output>
+        </const>
+        <const editor:uuid="171" editor:posx="6000" editor:posy="5600">
+            <output as="out">t2 (1)</output>
+        </const>
+        <const editor:uuid="172" editor:posx="6250" editor:posy="5850">
+            <output as="out">t3 (1)</output>
+        </const>
+        <const editor:uuid="173" editor:posx="6500" editor:posy="6100">
+            <output as="out">t4 (1)</output>
+        </const>
+        <const editor:uuid="174" editor:posx="6750" editor:posy="6350">
+            <output as="out">t5 (1)</output>
+        </const>
+        <subrange editor:uuid="175" editor:posx="7000" editor:posy="6600">
+            <input as="in" clear="false">tlist</input>
+            <input as="from" type="value">0</input>
+            <input as="length" type="value">1</input>
+            <output as="out" clear="false">t0 (1)</output>
+        </subrange>
+        <subrange editor:uuid="176" editor:posx="7250" editor:posy="6850">
+            <input as="in" clear="false">tlist</input>
+            <input as="from" type="value">1</input>
+            <input as="length" type="value">1</input>
+            <output as="out" clear="false">t1 (1)</output>
+        </subrange>
+        <subrange editor:uuid="177" editor:posx="7500" editor:posy="7100">
+            <input as="in" clear="false">tlist</input>
+            <input as="from" type="value">2</input>
+            <input as="length" type="value">1</input>
+            <output as="out" clear="false">t2 (1)</output>
+        </subrange>
+        <subrange editor:uuid="178" editor:posx="7750" editor:posy="7350">
+            <input as="in" clear="false">tlist</input>
+            <input as="from" type="value">3</input>
+            <input as="length" type="value">1</input>
+            <output as="out" clear="false">t3 (1)</output>
+        </subrange>
+        <subrange editor:uuid="179" editor:posx="8000" editor:posy="7600">
+            <input as="in" clear="false">tlist</input>
+            <input as="from" type="value">4</input>
+            <input as="length" type="value">1</input>
+            <output as="out" clear="false">t4 (1)</output>
+        </subrange>
+        <subrange editor:uuid="180" editor:posx="8250" editor:posy="7850">
+            <input as="in" clear="false">tlist</input>
+            <input as="from" type="value">5</input>
+            <input as="length" type="value">1</input>
+            <output as="out" clear="false">t5 (1)</output>
+        </subrange>
+        <if editor:uuid="181" editor:posx="8500" editor:posy="8100" less="true" equal="true" greater="false">
+            <input as="a" clear="false">t5 (1)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">tmax</input>
+            <input as="false" clear="false">t5 (1)</input>
+            <output as="result">t5effective</output>
+        </if>
+        <if editor:uuid="182" editor:posx="8750" editor:posy="8350" less="true" equal="true" greater="false">
+            <input as="a" clear="false">t4 (1)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">tmax</input>
+            <input as="false" clear="false">t4 (1)</input>
+            <output as="result">t4effective</output>
+        </if>
+        <if editor:uuid="183" editor:posx="9000" editor:posy="8600" less="true" equal="true" greater="false">
+            <input as="a" clear="false">t3 (1)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">tmax</input>
+            <input as="false" clear="false">t3 (1)</input>
+            <output as="result">t3effective</output>
+        </if>
+        <if editor:uuid="184" editor:posx="9250" editor:posy="8850" less="true" equal="true" greater="false">
+            <input as="a" clear="false">t2 (1)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">tmax</input>
+            <input as="false" clear="false">t2 (1)</input>
+            <output as="result">t2effective</output>
+        </if>
+        <if editor:uuid="185" editor:posx="9500" editor:posy="9100" less="true" equal="true" greater="false">
+            <input as="a" clear="false">t1 (1)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">tmax</input>
+            <input as="false" clear="false">t1 (1)</input>
+            <output as="result">t1effective</output>
+        </if>
+        <if editor:uuid="186" editor:posx="9750" editor:posy="9350" less="true" equal="true" greater="false">
+            <input as="a" clear="false">t0 (1)</input>
+            <input as="b" type="value">0</input>
+            <input as="true" clear="false">tmax</input>
+            <input as="false" clear="false">t0 (1)</input>
+            <output as="result">t0effective</output>
+        </if>
+        <subtract editor:uuid="187" editor:posx="10000" editor:posy="9600">
+            <input as="minuend" clear="false">t5effective</input>
+            <input as="subtrahend" clear="false">t4effective</input>
+            <output as="difference">dt45</output>
+        </subtract>
+        <subtract editor:uuid="188" editor:posx="10250" editor:posy="9850">
+            <input as="minuend" clear="false">t4effective</input>
+            <input as="subtrahend" clear="false">t3effective</input>
+            <output as="difference">dt34</output>
+        </subtract>
+        <subtract editor:uuid="189" editor:posx="10500" editor:posy="10100">
+            <input as="minuend" clear="false">t3effective</input>
+            <input as="subtrahend" clear="false">t2effective</input>
+            <output as="difference">dt23</output>
+        </subtract>
+        <subtract editor:uuid="190" editor:posx="10750" editor:posy="10350">
+            <input as="minuend" clear="false">t2effective</input>
+            <input as="subtrahend" clear="false">t1effective</input>
+            <output as="difference">dt12</output>
+        </subtract>
+        <subtract editor:uuid="191" editor:posx="11000" editor:posy="10600">
+            <input as="minuend">t5effective</input>
+            <input as="subtrahend" clear="false">t0effective</input>
+            <output as="difference">dt05</output>
+        </subtract>
+        <subtract editor:uuid="192" editor:posx="11250" editor:posy="10850">
+            <input as="minuend">t4effective</input>
+            <input as="subtrahend" clear="false">t0effective</input>
+            <output as="difference">dt04</output>
+        </subtract>
+        <subtract editor:uuid="193" editor:posx="11500" editor:posy="11100">
+            <input as="minuend">t3effective</input>
+            <input as="subtrahend" clear="false">t0effective</input>
+            <output as="difference">dt03</output>
+        </subtract>
+        <subtract editor:uuid="194" editor:posx="11750" editor:posy="11350">
+            <input as="minuend">t2effective</input>
+            <input as="subtrahend" clear="false">t0effective</input>
+            <output as="difference">dt02</output>
+        </subtract>
+        <subtract editor:uuid="195" editor:posx="12000" editor:posy="11600">
+            <input as="minuend">t1effective</input>
+            <input as="subtrahend">t0effective</input>
+            <output as="difference">dt01</output>
+        </subtract>
+    </analysis>
+    <views>
+        <view label="Simple">
+            <edit editor:uuid="202" editor:posx="100" editor:posy="500" label="Threshold" signed="false" decimal="true" min="0" max="1" unit="a.u." factor="1" default="0.1">
+                <output>threshold</output>
+            </edit>
+            <edit editor:uuid="203" editor:posx="100" editor:posy="750" label="Minimum Delay" signed="false" decimal="true"   unit="s" factor="1" default="0.1">
+                <output>mindelay</output>
+            </edit>
+            <value editor:uuid="204" editor:posx="12400" editor:posy="250" label="Time" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt01</input>
+            </value>
+            <button editor:uuid="205" editor:posx="12400" editor:posy="500" label="Reset">
+                <input type="empty" />
+                <output>tlist</output>
+                <input type="value">0</input>
+                <output>index</output>
+            </button>
+            <separator editor:uuid="206" height="1" color="404040">
+            </separator>
+            <info editor:uuid="207" label="Change the threshold to be above the environmental noise level, but below the trigger noise (you can try the audio scope experiment to check these). Also set the minimum delay to avoid triggers shorter than that time (for example due to echo or reverberation)." >
+            </info>
+            <separator editor:uuid="208" height="1" color="404040">
+            </separator>
+            <info editor:uuid="209" label="Unfortunately, this won't work on slow phones. Please compare to a regular clock first, to make sure, that the experiment is working as expected." >
+            </info>
+        </view>
+        <view label="Sequence">
+            <value editor:uuid="210" editor:posx="12400" editor:posy="750" label="Time 1" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt01</input>
+            </value>
+            <value editor:uuid="211" editor:posx="12400" editor:posy="1000" label="Time 2" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt12</input>
+            </value>
+            <value editor:uuid="212" editor:posx="12400" editor:posy="1250" label="Time 3" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt23</input>
+            </value>
+            <value editor:uuid="213" editor:posx="12400" editor:posy="1500" label="Time 4" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt34</input>
+            </value>
+            <value editor:uuid="214" editor:posx="12400" editor:posy="1750" label="Time 5" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt45</input>
+            </value>
+            <separator editor:uuid="215" height="1" color="404040">
+            </separator>
+            <button editor:uuid="216" editor:posx="12400" editor:posy="2000" label="Reset">
+                <input type="empty" />
+                <output>tlist</output>
+                <input type="value">0</input>
+                <output>index</output>
+            </button>
+        </view>
+        <view label="Parallel">
+            <value editor:uuid="217" editor:posx="12400" editor:posy="2250" label="Time 1" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt01</input>
+            </value>
+            <value editor:uuid="218" editor:posx="12400" editor:posy="2500" label="Time 2" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt02</input>
+            </value>
+            <value editor:uuid="219" editor:posx="12400" editor:posy="2750" label="Time 3" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt03</input>
+            </value>
+            <value editor:uuid="220" editor:posx="12400" editor:posy="3000" label="Time 4" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt04</input>
+            </value>
+            <value editor:uuid="221" editor:posx="12400" editor:posy="3250" label="Time 5" size="3" precision="3" scientific="false" unit="s" factor="1" >
+                <input>dt05</input>
+            </value>
+            <separator editor:uuid="222" height="1" color="404040">
+            </separator>
+            <button editor:uuid="223" editor:posx="12400" editor:posy="3500" label="Reset">
+                <input type="empty" />
+                <output>tlist</output>
+                <input type="value">0</input>
+                <output>index</output>
+            </button>
+        </view>
+        <view label="Many">
+            <graph editor:uuid="224" editor:posx="12400" editor:posy="3750" label="Events" aspectRatio="2.5" style="lines" lineWidth="1" color="ff7e22" partialUpdate="false" history="1" labelX="Event number" labelY="Time interval" labelZ="" unitX="" unitY="s" unitZ="" logX="false" logY="false" logZ="false" xPrecision="3" yPrecision="3" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0"  mapWidth="0"       >
+                <input axis="x">tindex</input>
+                <input axis="y">dtlist (1)</input>
+            </graph>
+            <value editor:uuid="225" editor:posx="12400" editor:posy="4000" label="Average interval" size="2" precision="3" scientific="false" unit="s" factor="1" >
+                <input>avgInterval</input>
+            </value>
+            <value editor:uuid="226" editor:posx="12400" editor:posy="4250" label="Average rate" size="2" precision="2" scientific="false" unit="Hz" factor="1" >
+                <input>avgRate</input>
+            </value>
+            <value editor:uuid="227" editor:posx="12400" editor:posy="4500" label="Average rate (bpm)" size="2" precision="1" scientific="false" unit="1/min" factor="1" >
+                <input>avgBPM</input>
+            </value>
+            <button editor:uuid="228" editor:posx="12400" editor:posy="4750" label="Reset">
+                <input type="empty" />
+                <output>tlist</output>
+                <input type="value">0</input>
+                <output>index</output>
+            </button>
+        </view>
+    </views>
+    <export>
+        <set name="Simple">
+            <data name="Start (s)">t0 (1)</data>
+            <data name="Stop (s)">t1 (1)</data>
+            <data name="Difference (s)">dt01</data>
+        </set>
+        <set name="Multiple">
+            <data name="Start (s)">t0 (1)</data>
+            <data name="Stop 1 (s)">t1 (1)</data>
+            <data name="Stop 2 (s)">t2 (1)</data>
+            <data name="Stop 3 (s)">t3 (1)</data>
+            <data name="Stop 4 (s)">t4 (1)</data>
+            <data name="Stop 5 (s)">t5 (1)</data>
+        </set>
+        <set name="All">
+            <data name="Event time (s)">tlist</data>
+            <data name="Interval (s)">dtlist (1)</data>
+        </set>
+    </export>
+</phyphox>
