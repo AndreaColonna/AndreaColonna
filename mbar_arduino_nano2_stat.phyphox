@@ -18,7 +18,7 @@ Il valore di pressione viene mediato attarverso il valore statistico
   
   <data-containers>
     <!-- variabili per le letture del sensore -->
-    <container size="0" static="false" init="">Pressione</container> <!-- Variabile in cui verranno memorizzati i valori di pressione letti dal sensore -->
+    <container size="0" static="false" init="">pressione</container> <!-- Variabile in cui verranno memorizzati i valori di pressione letti dal sensore -->
     <container size="0" static="false" init="">tempo</container>     <!-- Variabile in cui verranno memorizzati i valori di tempo letti dal sensore -->
     <!-- variabili per la statistica -->
     <container size="1">binSize</container>
