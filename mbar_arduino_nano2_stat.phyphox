@@ -63,7 +63,7 @@ Il valore di pressione viene mediato attarverso il valore statistico
         <output>binSize</output>
       </edit>
       <value label="Pressione" size="1" precision="3" unit="mbar">
-        <input>Pressione</input>
+        <input>pressione</input>
       </value>
       <value label="Pressione Media" precision="3" scientific="false" unit="mbar" factor="1">
         <input>average</input>
