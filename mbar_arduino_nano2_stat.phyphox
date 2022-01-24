@@ -1,4 +1,4 @@
-<!-- Mostyra il valore di pressione misurato dal sensore Arduino nano 33 BLE sense:
+<!-- Mostra il valore di pressione misurato dal sensore Arduino nano 33 BLE sense:
 in hPa.
 Il valore di pressione viene mediato attarverso il valore statistico
 -->
@@ -10,7 +10,7 @@ Il valore di pressione viene mediato attarverso il valore statistico
   
   <description>
     Mostra la pressione misurata da Arduino in hPae la media attraverso la statistica
-  </descrition>
+  </description>
   
   <icon>ABs</icon>
   
