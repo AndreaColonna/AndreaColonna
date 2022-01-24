@@ -144,4 +144,5 @@ Il valore di pressione viene mediato attarverso il valore statistico
       <data name="Bin count ">binCount<\data>
     </set>
   </export>
+  
 </phyphox>
