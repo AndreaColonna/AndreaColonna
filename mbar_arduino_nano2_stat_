@@ -1,0 +1,147 @@
+<!-- Show pressure from Arduino Nano 33 BLE sense:
+     in hPa.
+     mIv Fev 10, 2021 
+     Add statistics Dec 19, 2021
+-->
+<phyphox version="1.7" locale="en"> 
+    <title>Pressure statistics from Arduino</title>
+    <category>Arduino Experiments</category>
+    <description>
+        Show pressure statistics from Arduino Nano 33 BLE sense. Pressure is in hPa.
+    </description>
+
+    <icon>ABs</icon> <!-- Arduino BAr -->
+    <color>green</color>
+
+    <data-containers>
+<!-- BLE channels -->
+	    <container size="0" static="false" init="">pressure</container> <!-- CH1, hPa -->
+	    <container size="0" static="false" init="">time</container> <!-- CH0 -->
+<!-- for statistics -->   
+        <container size="1">binSize</container> 
+	    <container size="0">binStart</container>
+	    <container size="0">binCount</container>
+	    <container size="1">average</container>
+	    <container size="1">deviation</container>
+	    <container size="1">count</container>
+<!-- theoretical gaussian -->
+        <container size="1">minX</container>
+        <container size="1">maxX</container>
+        <container size="500">gaussianX</container>
+        <container size="500">gaussian</container>
+    </data-containers>
+
+    <input> 
+        <!-- From Arduino using phyphox BLE -->
+        <bluetooth name="Arduino" mode="notification" rate="1" subscribeOnStart="false" id="Sense">
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">pressure</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" extra="time">time</output>
+        </bluetooth>
+    </input>
+
+    <output>
+    </output>
+
+  <views>
+    <view label="Arduino">
+            <graph label="Pressure" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="p" labelZ="" unitX="s" unitY="hPa" unitZ="" logX="false" xPrecision="3" yPrecision="6" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0"  mapWidth="0" >
+                <input axis="x">time</input>
+                <input axis="y">pressure</input>
+            </graph>
+
+            <graph label="Histogram" labelX="Pressure" labelY="Count" partialUpdate="false" unitX="hPa" xPrecision="6">
+                <input axis="x">gaussianX</input>
+                <input axis="y" style="lines" lineWidth="2">gaussian</input>
+                <input axis="x">binStart</input>
+                <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
+            </graph>
+
+            <edit label="Bin size" unit="hPa" default="0.01" signed="false">
+                <output>binSize</output>
+            </edit>
+      <value label="Pressure" size="1" precision="3" unit="hPa">
+        <input>pressure</input>
+      </value>
+
+            <value label="Average pressure" precision="3" scientific="false" unit="hPa" factor="1">
+                <input>average</input>
+            </value>
+            <value label="Standard deviation" precision="3" scientific="false" unit="hPa" factor="1">
+                <input>deviation</input>
+            </value>
+            <value label="Count" precision="0" scientific="false" unit="" factor="1">
+                <input>count</input>
+            </value>
+
+    </view>
+  </views>
+
+  <analysis sleep="0" onUserInput="false">
+        <binning>
+            <input clear="false">pressure</input>
+            <input as="dx" clear="false">binSize</input>
+            <output clear="true">binStart</output>
+	    <output clear="true">binCount</output>
+        </binning>
+
+        <average>
+            <input clear="false">pressure</input>
+            <output as="average">average</output>
+            <output as="stddev">deviation</output>
+        </average>
+
+        <count>
+            <input clear="false">pressure</input>
+            <output as="count">count</output>
+        </count>
+
+        <subrange> <!-- firt element of binStart -->
+            <input clear="false">binStart</input>
+            <input as="from" type="value">0</input>
+            <input as="length" type="value">1</input>
+            <output>minX</output>
+        </subrange>
+
+        <max> 
+            <input as="y" clear="false">binStart</input>
+            <output as="max">maxX</output>
+        </max>
+
+<!--
+        <add>
+            <input>maxX</input>
+            <input clear="false">binSize</input>
+            <output>maxX</output>
+        </add>
+-->
+	
+        <ramp>
+            <input as="start" clear="false">minX</input>
+            <input as="stop" clear="false">maxX</input>
+            <output>gaussianX</output>
+        </ramp>
+
+        <formula formula="[4]*[5]*exp(-0.5*([1_]-[2])^2/[3]^2)/(2.506628*[3])">
+            <input clear="false">gaussianX</input>
+            <input clear="false">average</input>
+            <input clear="false">deviation</input>
+            <input clear="false">binSize</input>
+            <input clear="false">count</input>
+            <output>gaussian</output>
+        </formula>
+
+  </analysis>
+
+  <export>
+    <set name="Arduino_pressure">
+      <data name="time (s)">time</data>
+      <data name="p (hPa)">pressure</data>
+    </set>
+
+        <set name="Bins">
+            <data name="Bin start (hPa)">binStart</data>
+            <data name="Bin count">binCount</data>
+        </set>
+  </export>
+
+</phyphox>
