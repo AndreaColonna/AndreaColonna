@@ -136,12 +136,12 @@ Il valore di pressione viene mediato attarverso il valore statistico
   <!-- blocco per esportare i dati -->
   <export>
     <set name="Pressione_Arduino">
-      <data name="tempo (s)">tempo<\data>
-      <data name="pressione (mbar)">pressione<\data>
+      <data name="tempo (s)">tempo</data>
+      <data name="pressione (mbar)">pressione</data>
     </set>
     <set name="Statistica">
-      <data name="Bin start (mbar)">binStart<\data>
-      <data name="Bin count ">binCount<\data>
+      <data name="Bin start (mbar)">binStart</data>
+      <data name="Bin count ">binCount</data>
     </set>
   </export>
   
