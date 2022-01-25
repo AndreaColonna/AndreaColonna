@@ -56,7 +56,7 @@ Il valore di pressione viene mediato attarverso il valore statistico
         <input axis="x">gaussianX</input>
         <input axis="y" style="lines" lineWidth="2">gaussian</input>
         <input axis="x">binStart</input>
-        <input axis="y" style="vbar" color="E0E040" lineWidth="0.9">binCount</input>
+        <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
       </graph>
       <!-- oggetto editabile -->
       <edit label="Ampiezza" unit="mbar" default="0.01" signaed="false">
