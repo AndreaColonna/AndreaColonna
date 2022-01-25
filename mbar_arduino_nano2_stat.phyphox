@@ -1,5 +1,5 @@
 <!-- Mostra il valore di pressione misurato dal sensore Arduino nano 33 BLE sense:
-in hPa.
+in mbar.
 Il valore di pressione viene mediato attarverso il valore statistico
 -->
 <phyphox version="1.7" locale="it">
@@ -9,7 +9,7 @@ Il valore di pressione viene mediato attarverso il valore statistico
   <category>Esperimenti con ARDUINO</category>
   
   <description>
-    Mostra la pressione misurata da Arduino in hPae la media attraverso la statistica
+    Mostra la pressione misurata da Arduino in mbar e la media attraverso la statistica. Nella scheda Arduino 33 BLE sense deve essere installato lo scratch "Pressione_nano" che attiva solo il sensore di pressione. La configurazione della scheda ha un piccolo difetto il valore del sensore di pressione  viene alterato dalla misura dei valori degli altri sensori. Questo metodo evita tali interferenze.       
   </description>
   
   <icon>ABs</icon>
