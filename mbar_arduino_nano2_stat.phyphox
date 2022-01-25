@@ -84,8 +84,8 @@ Il valore di pressione viene mediato attarverso il valore statistico
     <binning>
       <input clear="false">pressione</input>
       <input as="dx" clear="false">binSize</input>
-      <output clear="true">binStart<\output>
-      <output clear="true">binCount<\output>
+      <output clear="true">binStart</output>
+      <output clear="true">binCount</output>
     </binning>
     
     <!-- blocco per il calcolo del valor medio  -->
