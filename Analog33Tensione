@@ -80,7 +80,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
     <export>
         <set name="Dati_Arduino">
             <data name="Time t (s)">tempo</data>
-            <data name="Analog Input A0">tensione0</data>
+            <data name="Analog Input A0">tempo0</data>
             <data name="Analog Input A1">tensione1</data>
             <data name="Analog Input A2">tensione2</data>
         </set>
