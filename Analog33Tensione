@@ -16,19 +16,19 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 
 	<data-containers>
 		<!--variabili per le letture del sensore -->
-	    <container size="0" static="false" init="">tensione0</container>
-		<container size="0" static="false" init="">tempo</container>
+	    <container size="0" static="false" init="">tempo0</container>
+	    <container size="0" static="false" init="">tempo</container>
 	    <container size="0" static="false" init="">tensione1</container>
 	    <container size="0" static="false" init="">tensione2</container>
 	    <container size="0" static="false" init="">tensione3</container>
 	    <!-- variabile per la resistenza -->
-		<container size="1">res</container>
-		<container size="1">corrente0</container>
+	    <container size="1">res</container>
+	    <container size="1">corrente0</container>
 	</data-containers>
 <!-- Da arduino a phyphox BLE -->
     <input>
         <bluetooth mode="notification" subscribeOnStart="false" id="Sense">
-            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">tensione0</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">tempo0</output>
             <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="4">tensione1</output>
             <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="8">tensione2</output>
             <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="12">tensione3</output>
@@ -44,16 +44,16 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 	
 	<views>  <!-- schermate -->
 		<view label="Porta analogica A0">  <!-- grafico tensione A0 tempo -->
-            <graph label="Tensione A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="tensione" labelZ="" unitX="s" unitY="V" unitZ="" logX="false" xPrecision="3" yPrecision="5" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
+            <graph label="Tensione A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="tensione" labelZ="" unitX="s" unitY="mV" unitZ="" logX="false" xPrecision="3" yPrecision="3" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
                 <input axis="x">tempo</input>
                 <input axis="y">tensione1</input>
             </graph>
 			
-            <value label="Tensione" precision="3" scientific="false" unit="V" factor="1">
+            <value label="Tensione" precision="2" scientific="false" unit="mV" factor="1">
                 <input>tensione1</input>
             </value>
 			
-			<graph label="Corrente A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="corrente" labelZ="" unitX="s" unitY="mA" unitZ="" logX="false" xPrecision="3" yPrecision="5" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
+			<graph label="Corrente A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="corrente" labelZ="" unitX="s" unitY="mA" unitZ="" logX="false" xPrecision="3" yPrecision="3" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
                 <input axis="x">tempo</input>
                 <input axis="y">corrente0</input>
             </graph>
@@ -70,7 +70,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 	</views>
   <!-- Blocco operazioni -->
 	<analysis sleep="0" onUserInput="false">
-        <formula formula="[1]/[2]">
+        <formula formula="[1_]/[2]">
             <input clear="false">tensione1</input>
 			<input clear="false">res</input>
             <output>corrente0</output>
