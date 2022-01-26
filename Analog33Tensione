@@ -58,11 +58,11 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
                 <input axis="y">corrente0</input>
             </graph>
 			<!-- oggetto editabile -->
-			<edit label="Resistenza" unit="kΩ" default="15" signaed="false">
+			<edit label="Resistenza" unit="Ω" default="100" signaed="false">
 				<output>res</output>
 			</edit>
 			
-			<value label="Corrente" precision="3" scientific="false" unit="mA" factor="1">
+			<value label="Corrente" precision="2" scientific="false" unit="μA" factor="1">
                 <input>corrente0</input>
             </value>
 			
@@ -73,7 +73,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
         <formula formula="[1_]/[2_]">
             <input clear="false">tensione1</input>
 	    <input clear="false">res</input>
-            <output>corrente0</output>
+            <output clear="true">corrente0</output>
         </formula>
 	</analysis>
 
