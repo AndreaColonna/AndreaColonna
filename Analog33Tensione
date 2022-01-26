@@ -62,7 +62,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 				<output>res</output>
 			</edit>
 			
-			<value label="Corrente" precision="4" scientific="false" unit="mA" factor="1">
+			<value label="Corrente" precision="3" scientific="false" unit="mA" factor="1">
                 <input>corrente0</input>
             </value>
 			
