@@ -70,7 +70,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 	</views>
   <!-- Blocco operazioni -->
 	<analysis sleep="0" onUserInput="false">
-        <formula formula="[1_]/[2]">
+        <formula formula="[1_]/[2_]">
             <input clear="false">tensione1</input>
 			<input clear="false">res</input>
             <output>corrente0</output>
