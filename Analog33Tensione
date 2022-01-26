@@ -53,7 +53,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
                 <input>tensione1</input>
             </value>
 			
-			<graph label="Corrente A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="corrente" labelZ="" unitX="s" unitY="mA" unitZ="" logX="false" xPrecision="3" yPrecision="6" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
+			<graph label="Corrente A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="corrente" labelZ="" unitX="s" unitY="mA" unitZ="" logX="false" xPrecision="3" yPrecision="4" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
                 <input axis="x">tempo</input>
                 <input axis="y">corrente0</input>
             </graph>
