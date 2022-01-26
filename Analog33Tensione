@@ -73,7 +73,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
         <formula formula="1000*[1_]/[2_]">
             <input clear="false">tensione1</input>
 	    <input clear="false">res</input>
-            <output clear="true">corrente0</output>
+            <output clear="false">corrente0</output>
         </formula>
 	</analysis>
 
