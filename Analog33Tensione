@@ -46,11 +46,11 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 		<view label="Porta analogica A0">  <!-- grafico tensione A0 tempo -->
             <graph label="Tensione A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="tensione" labelZ="" unitX="s" unitY="V" unitZ="" logX="false" xPrecision="3" yPrecision="5" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
                 <input axis="x">tempo</input>
-                <input axis="y">tensione0</input>
+                <input axis="y">tensione1</input>
             </graph>
 			
             <value label="Tensione" precision="3" scientific="false" unit="V" factor="1">
-                <input>tensione0</input>
+                <input>tensione1</input>
             </value>
 			
 			<graph label="Corrente A0" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="corrente" labelZ="" unitX="s" unitY="mA" unitZ="" logX="false" xPrecision="3" yPrecision="5" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
@@ -71,7 +71,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
   <!-- Blocco operazioni -->
 	<analysis sleep="0" onUserInput="false">
         <formula formula="[1]/[2]">
-            <input clear="false">tensione0</input>
+            <input clear="false">tensione1</input>
 			<input clear="false">res</input>
             <output>corrente0</output>
         </formula>
