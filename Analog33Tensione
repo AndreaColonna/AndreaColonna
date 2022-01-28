@@ -23,7 +23,7 @@ Il valore di tensione della porta A0 viene mediato attarverso il valore statisti
 	    <container size="0" static="false" init="">tensione3</container>
 	    <!-- variabile per la resistenza -->
 	    <container size="1">res</container>
-	    <container size="1">corrente0</container>
+	    <container size="0">corrente0</container>
 	</data-containers>
 <!-- Da arduino a phyphox BLE -->
     <input>
