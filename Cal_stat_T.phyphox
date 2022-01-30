@@ -37,7 +37,7 @@ Il valore reale viene mediato attarverso il valore statistico. NON FUNZIONANTE A
 		 
 <input>    
         <sensor type="temperature" rate="0">    <!-- sensor= sensore dello smartphone  type= accelerometro rate=0 alla massima velocità possibile-->
-            <output>Te</output>   <!-- prendi i valori della temperatura interna e mettili in T-->
+            <output component="T">Te</output>   <!-- prendi i valori della temperatura interna e mettili in T-->
             <output component="t">t</output>      <!-- prendi i valori del tempo e mettili in t -->
         </sensor>
 </input>
