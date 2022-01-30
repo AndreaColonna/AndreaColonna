@@ -95,12 +95,12 @@ Il valore reale viene mediato attarverso il valore statistico.
 	
   <views>   <!-- Blocco schermate -->  
     <view label="Misura statistica di g_y">    <!-- grafico temporale di g_y in funzione del tempo -->
-            <graph label="misura di g_y(t)" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="g_y" labelZ="" unitX="s" unitY="m/s²" unitZ="" logX="false" xPrecision="3" yPrecision="6" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0"  mapWidth="0" >
+            <graph label="misura di g_y(t)" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="g_y" labelZ="" unitX="s" unitY="m/s²" unitZ="" logX="false" xPrecision="3" yPrecision="4" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0"  mapWidth="0" >
                 <input axis="x">t</input>
                 <input axis="y">accY</input>
             </graph>
 
-            <graph label="Histogram" labelX="g_y" labelY="Count" partialUpdate="false" unitX="m/s²" xPrecision="6"> <!-- istogramma dei valori di g_y + gaussiana -->
+            <graph label="Histogram" labelX="g_y" labelY="Count" partialUpdate="false" unitX="m/s²" xPrecision="4"> <!-- istogramma dei valori di g_y + gaussiana -->
                 <input axis="x">gaussianX</input>
                 <input axis="y" style="lines" lineWidth="2">gaussian</input>
                 <input axis="x">binStart</input>
