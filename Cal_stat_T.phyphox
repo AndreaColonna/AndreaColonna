@@ -19,7 +19,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 	
 	    <data-containers>
 					<!-- contenitori per i valori dallo smartphone  -->
-	    		<container size="0" static="false" init="">T</container> <!-- Temperatura interna dello smartphone -->
+	    		<container size="0" static="false" init="">Te</container> <!-- Temperatura interna dello smartphone -->
 	    		<container size="0" static="false" init="">t</container> <!-- contenitore per il tempo -->
 <!-- contenitori per l'indagine statistica  -->   
           <container size="1">binSize</container>                     <!-- dimensione dell'intervallo -->
@@ -37,7 +37,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 		 
 <input>    
         <sensor type="temperature" rate="0">    <!-- sensor= sensore dello smartphone  type= accelerometro rate=0 alla massima velocità possibile-->
-            <output>T</output>   <!-- prendi i valori della temperatura interna e mettili in T-->
+            <output>Te</output>   <!-- prendi i valori della temperatura interna e mettili in T-->
             <output component="t">t</output>      <!-- prendi i valori del tempo e mettili in t -->
         </sensor>
 </input>
@@ -47,20 +47,20 @@ Il valore reale viene mediato attarverso il valore statistico.
 
 <analysis sleep="0" onUserInput="false">
         <binning>
-            <input clear="false">T</input>
+            <input clear="false">Te</input>
             <input as="dx" clear="false">binSize</input>
             <output clear="true">binStart</output>   <!-- calcolo dell'intervallo iniziale -->
 	          <output clear="true">binCount</output>   <!-- calcolo del numero di intervalli --> 
         </binning>
 
         <average>
-            <input clear="false">T</input>        
+            <input clear="false">Te</input>        
             <output as="average">average</output>     <!-- calcolo del valor medio -->
             <output as="stddev">deviation</output>    <!-- calcolo della dev. st. -->
         </average>
 
         <count>
-            <input clear="false">T</input>
+            <input clear="false">Te</input>
             <output as="count">count</output>          <!-- numero di valori di T -->
         </count>
 
@@ -97,7 +97,7 @@ Il valore reale viene mediato attarverso il valore statistico.
     <view label="Misura statistica di T interna">    <!-- grafico temporale di T in funzione del tempo -->
             <graph label="misura di T(t)" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate="true" history="1" labelX="t" labelY="T" labelZ="" unitX="s" unitY="°C" unitZ="" logX="false" xPrecision="3" yPrecision="4" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0"  mapWidth="0" >
                 <input axis="x">t</input>
-                <input axis="y">T</input>
+                <input axis="y">Te</input>
             </graph>
 
             <graph label="Histogram" labelX="T" labelY="Count" partialUpdate="false" unitX="°C" xPrecision="4"> <!-- istogramma dei valori di T + gaussiana -->
@@ -112,7 +112,7 @@ Il valore reale viene mediato attarverso il valore statistico.
             </edit>
             
 						<value label="T" size="1" precision="3" unit="°C">
-                <input>T</input>                                           <!-- valore temporale di T -->
+                <input>Te</input>                                           <!-- valore temporale di T -->
             </value>
 
             <value label="valor medio T" precision="3" scientific="false" unit="°C" factor="1">
@@ -130,7 +130,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 	<export>
     <set name="Dati grezzi">
       <data name="tempo (s)">t</data>
-      <data name="T (°C)">T</data>
+      <data name="T (°C)">Te</data>
     </set>
 
         <set name="Dati statistici">
