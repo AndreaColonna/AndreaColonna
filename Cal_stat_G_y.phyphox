@@ -115,13 +115,13 @@ Il valore reale viene mediato attarverso il valore statistico.
                 <input>accY</input>                                           <!-- valore temporale di g_y -->
             </value>
 
-            <value label="Average pressure" precision="3" scientific="false" unit="m/s²" factor="1">
+            <value label="valor medio g_y" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>average</input>                                        <!-- valor medio di g_y -->
             </value>
             <value label="Standard deviation" precision="3" scientific="false" unit="m/s²" factor="1">
                 <input>deviation</input>                                       <!-- deviazione standard di g_y -->   
             </value>
-            <value label="Count" precision="0" scientific="false" unit="" factor="1">
+            <value label="Conteggi" precision="0" scientific="false" unit="" factor="1">
                 <input>count</input>                                           <!-- numero di conteggi --> 
             </value>
     </view>
