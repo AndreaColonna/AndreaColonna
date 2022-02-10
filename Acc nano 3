@@ -1,0 +1,180 @@
+<phyphox xmlns="http://phyphox.org/xml" xmlns:editor="http://phyphox.org/editor/xml" version="1.7">
+    <title>Accelerazione z</title>
+    <category>MOBILE Arduino Nano 33 BLE Sense</category>
+    <color>009200</color>
+    <description> Misura della pressione tramite scheda Arduino..
+
+        Questo esperimento visualizza semplicemente i dati di pressione grezzi dal sensore in un istogramma, che dovrebbe formare una distribuzione gaussiana quando il dispositivo è a riposo. A seconda del rumore del sensore, potresti voler modificare la dimensione del binning.</description>
+    <icon format="string">Acc</icon>
+    <translations>
+        <translation locale="it">
+            <title>Acc nano 33</title>
+            <category>MOBILE Arduino Nano 33 BLE Sense</category>
+            <description>
+                 Misura l'accelerazione tramite scheda Arduino..
+
+        Questo esperimento visualizza semplicemente i dati di pressione grezzi dal sensore in un istogramma, che dovrebbe formare una distribuzione gaussiana quando il dispositivo è a riposo. A seconda del rumore del sensore, potresti voler modificare la dimensione del binning.
+            </description>
+            <string original="Statistics">Statistica</string>
+            <string original="Acceleration">Accelerazione</string>
+            <string original="Acceleration (m/s²)">Accelerazione z(m/s²)</string>
+            <string original="Histogram">Istogramma</string>
+            <string original="Bin center (m/s²)">Centro intervallo(m/s²)</string>
+            <string original="Count">Conteggi</string>
+            <string original="Bin size">Ampiezza intervallo</string>
+            <string original="Average Acc">Accelerazione </string>
+            <string original="Standard deviation">Deviazione standard</string>
+        </translation>
+    </translations>
+    <data-containers>
+        <container size="0" static="false">CH5</container>
+        <container size="0" static="false">CH4</container>
+        <container size="0" static="false">CH3</container>
+        <container size="0" static="false">CH2</container>
+        <container size="0" static="false">CH1</container>
+        <container size="0" static="false">CH0</container>
+	<container size="0">binStart</container>
+	<container size="0">binCount</container>
+	<container size="0">average</container>
+	<container size="0"> acc</container>
+	<container size="1">deviation</container>
+	<container size="1">count</container>
+        <container size="1">binSize</container>
+        <container size="0">temp1</container>
+	<container size="0">temp2</container>
+        <container size="1">minX</container>
+        <container size="1">maxX</container>
+        <container size="500">gaussianX</container>
+        <container size="500">gaussian</container>
+    </data-containers>
+    <input>
+        <bluetooth editor:uuid="101" editor:posx="100" editor:posy="250" id="Sense"   mode="notification" rate="0" subscribeOnStart="false">
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">CH1</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="4">CH2</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="8">CH3</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="12">CH4</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="16">CH5</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="string" extra="time">CH0</output>
+        </bluetooth>
+    </input>
+    <output>
+        <bluetooth editor:uuid="104" editor:posx="87" editor:posy="162.0000114440918" id="Sense"  >
+            <config char="cddf1003-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian">1.0</config>
+        </bluetooth>
+    </output>
+    <analysis sleep="0"  onUserInput="false">
+         <multiply>
+            <input clear = "false">CH5</input>
+            <input type="value">9.8066</input>
+            <output>acc</output>
+        </multiply>
+
+	<binning editor:uuid="164" editor:posx="395.5113754272461" editor:posy="154.3636360168457">
+            <input clear="false">acc</input>
+            <input as="dx" clear="false">binSize</input>
+            <output clear="true">binStart</output>
+	    <output clear="true">binCount</output>
+        </binning>
+	
+
+        <average editor:uuid="209" editor:posx="393.3068161010742" editor:posy="300.3863639831543">
+            <input clear="false">acc</input>
+            <output as="average">average</output>
+            <output as="stddev">deviation</output>
+        </average>
+        <count editor:uuid="210" editor:posx="391.72728729248047" editor:posy="427.420467376709">
+            <input clear="false">acc</input>
+            <output as="count">count</output>
+        </count>
+        <subrange editor:uuid="211" editor:posx="628.738639831543" editor:posy="154.75001907348633">
+            <input clear="false">binStart</input>
+            <input as="from" type="value">0</input>
+            <input as="length" type="value">1</input>
+            <output>minX</output>
+        </subrange>
+        <append editor:uuid="212" editor:posx="628.6704711914062" editor:posy="335.17045974731445">
+            <input clear="false">binStart</input>
+            <output>temp1</output>
+        </append>
+        <add editor:uuid="213" editor:posx="846.9318237304688" editor:posy="336.7727241516113">
+            <input>temp1</input>
+            <input clear="false">binSize</input>
+            <output>maxX</output>
+        </add>
+        <ramp editor:uuid="214" editor:posx="998.9432067871094" editor:posy="174.04545974731445">
+            <input as="start" clear="false">minX</input>
+            <input as="stop" clear="false">maxX</input>
+            <output>gaussianX</output>
+        </ramp>
+        <subtract editor:uuid="215" editor:posx="1269.0000305175781" editor:posy="160.69318008422852">
+            <input clear="false">gaussianX</input>
+            <input clear="false">average</input>
+            <output>temp1</output>
+        </subtract>
+        <multiply editor:uuid="216" editor:posx="1885.3523254394531" editor:posy="399.22726821899414">
+            <input clear="false">temp1</input>
+            <input>temp1</input>
+            <output>temp2</output>
+        </multiply>
+        <divide editor:uuid="217" editor:posx="884.8182067871094" editor:posy="527.5341148376465">
+            <input>temp2</input>
+            <input type="value">-2</input>
+            <input clear="false">deviation</input>
+            <input clear="false">deviation</input>
+            <output>temp1</output>
+        </divide>
+        <power editor:uuid="218" editor:posx="1144.6705017089844" editor:posy="418.0341148376465">
+            <input as="base" type="value">2.7182818284</input>
+            <input as="exponent">temp1</input>
+            <output>temp2</output>
+        </power>
+        <divide editor:uuid="219" editor:posx="1439.079605102539" editor:posy="465.48864364624023">
+            <input>temp2</input>
+            <input type="value">2.506628275</input>
+            <input clear="false">deviation</input>
+	    <output>temp1</output>
+        </divide>
+        <multiply>
+            <input>temp1</input>
+            <input clear="false">binSize</input>
+            <input clear="false">count</input>
+            <output>gaussian</output>
+        </multiply>
+    </analysis>
+    <views>
+        <view label="Acc ">
+            <graph label="Accelerazione" labelX="t (s)" labelY="Acc  (m/s²)" partialUpdate="true" style="lines">
+                <input axis="x">CH1</input>
+                <input axis="y">acc</input>
+            </graph>
+            <graph label="Istogramma" labelX="Accelerazione (m/s²)" labelY="Count" partialUpdate="false">
+                <input axis="x">gaussianX</input>
+                <input axis="y" style="lines" lineWidth="2">gaussian</input>
+                <input axis="x">binStart</input>
+                <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
+            </graph>
+            <edit label="Bin size" unit="m/s²" default="0.005" signed="false">
+                <output>binSize</output>
+            </edit>
+            <value label="Acc " precision="2" scientific="false" unit="m/s²" factor="1">
+                <input>average</input>
+            </value>
+            <value label="Standard deviation" precision="2" scientific="false" unit="m/s²" factor="1">
+                <input>deviation</input>
+            </value>
+            <value label="Count" precision="0" scientific="false" unit="" factor="1">
+                <input>count</input>
+            </value>
+        </view>
+    </views>
+    <export>
+        <set name="Data">
+            <data name="t (s)">CH1</data>
+            <data name="Acc (m/s²)">acc</data>
+        </set>
+        <set name="Bins">
+            <data name="Bin start (m/s²)">binStart</data>
+            <data name="Bin count">binCount</data>
+        </set>
+    </export>
+</phyphox>

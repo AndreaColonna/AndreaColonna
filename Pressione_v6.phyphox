@@ -1,0 +1,53 @@
+<phyphox xmlns="http://phyphox.org/xml" xmlns:editor="http://phyphox.org/editor/xml" version="1.7">
+    <title>Pressione</title>
+    <category>MOBILE Arduino Nano 33 BLE Sense</category>
+    <color>009200</color>
+    <description>Misura della pressione tramite scheda Arduino..</description>
+    <icon format="string">Pre</icon>
+    <translations>
+        <translation locale="it">
+            <title>Pressione</title>
+            <description>Visualizza la pressione misurata dalla scheda Arduino </description>
+            <string original="FirstView">Schermata iniziale</string>
+            <string original="Pressure over time">Pressione in funzione del tempo</string>
+            <string original="time">tempi</string>
+            <string original="pressure">pressione</string>
+        </translation>
+    </translations>
+    <data-containers>
+        <container size="0" static="false">t</container>
+        <container size="0" static="false">pres</container>
+        <container size="0" static="false">CH0</container>
+    </data-containers>
+    <input>
+        <bluetooth editor:uuid="221" editor:posx="100" editor:posy="250" id="Sense"   mode="notification" rate="3" average="true" subscribeOnStart="false">
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">t</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="4">pres</output>
+            <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="string" extra="time">CH0</output>
+        </bluetooth>
+    </input>
+    <output>
+        <bluetooth editor:uuid="224" editor:posx="650" editor:posy="250" id="Sense"  >
+            <config char="cddf1003-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian">4.0</config>
+        </bluetooth>
+    </output>
+    <analysis sleep="0"  onUserInput="false">
+    </analysis>
+    <views>
+        <view label="FirstView">
+            <graph editor:uuid="276" editor:posx="650" editor:posy="500" label="Pressure over time" aspectRatio="2.5" style="lines" lineWidth="1" color="ff7e22" partialUpdate="true" history="1" labelX="time" labelY="pressure" labelZ="" unitX="s" unitY="kPa" unitZ="" logX="false" logY="false" logZ="false" xPrecision="3" yPrecision="6" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0"  mapWidth="0"       >
+                <input axis="x">t</input>
+                <input axis="y">pres</input>
+            </graph>
+            <value editor:uuid="277" editor:posx="661.4500122070312" editor:posy="336.2250099182129" label="Pressione" size="1" precision="2" scientific="false" unit="kPa" factor="1" >
+                <input>pres</input>
+            </value>
+        </view>
+    </views>
+    <export>
+        <set name="Raw data">
+            <data name="Time t (s)">t</data>
+            <data name="Pressure (kPa)">pres</data>
+        </set>
+    </export>
+</phyphox>
