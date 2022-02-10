@@ -134,8 +134,8 @@ Il valore reale viene mediato attarverso il valore statistico.
     </set>
 
         <set name="Dati statistici">
-						<data name="valor medio g_y (m/s²)">average</data>
-						<data name="dev. st. g_y (m/s²)">deviation</data>
+					<data name="valor medio g_y (m/s²)">average</data>
+					<data name="dev. st. g_y (m/s²)">deviation</data>
             <data name="Bin start (m/s²)">binStart</data>
             <data name="Bin count">binCount</data>
         </set>
