@@ -1,5 +1,5 @@
 <!-- Mostra il valore di pressione misurato dal sensore Arduino nano 33 BLE sense:
-in hPa.
+in mbar.
 Il valore di pressione viene mediato attarverso il valore statistico
 -->
 <phyphox version="1.7" locale="it">
@@ -9,7 +9,7 @@ Il valore di pressione viene mediato attarverso il valore statistico
   <category>Esperimenti con ARDUINO</category>
   
   <description>
-    Mostra la pressione misurata da Arduino in hPae la media attraverso la statistica
+    Mostra la pressione misurata da Arduino in mbar e la media attraverso la statistica. Nella scheda Arduino 33 BLE sense deve essere installato lo scratch "Pressione_nano" che attiva solo il sensore di pressione. La configurazione della scheda ha un piccolo difetto il valore del sensore di pressione  viene alterato dalla misura dei valori degli altri sensori. Questo metodo evita tali interferenze.       
   </description>
   
   <icon>ABs</icon>
@@ -52,18 +52,18 @@ Il valore di pressione viene mediato attarverso il valore statistico
         <input axis="y">pressione</input>
       </graph>
       <!-- grafico istogramma -->
-      <graph label="Istogramma" labelX="Pressione" labelY="Conteggi" partialUpdate="false" unitX="mbar" xPrecision="5">
+      <graph label="Istogramma" labelX="Pressione" labelY="Conteggi" partialUpdate="false" unitX="mbar" xPrecision="6">
         <input axis="x">gaussianX</input>
         <input axis="y" style="lines" lineWidth="2">gaussian</input>
         <input axis="x">binStart</input>
-        <input axis="y" styles="vbar" color="E0E040" lineWidth="0.9">binCount</input>
+        <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
       </graph>
       <!-- oggetto editabile -->
       <edit label="Ampiezza" unit="mbar" default="0.01" signaed="false">
         <output>binSize</output>
       </edit>
       <value label="Pressione" size="1" precision="3" unit="mbar">
-        <input>Pressione</input>
+        <input>pressione</input>
       </value>
       <value label="Pressione Media" precision="3" scientific="false" unit="mbar" factor="1">
         <input>average</input>
@@ -84,8 +84,8 @@ Il valore di pressione viene mediato attarverso il valore statistico
     <binning>
       <input clear="false">pressione</input>
       <input as="dx" clear="false">binSize</input>
-      <output clear="true">binStart<\output>
-      <output clear="true">binCount<\output>
+      <output clear="true">binStart</output>
+      <output clear="true">binCount</output>
     </binning>
     
     <!-- blocco per il calcolo del valor medio  -->
@@ -136,12 +136,12 @@ Il valore di pressione viene mediato attarverso il valore statistico
   <!-- blocco per esportare i dati -->
   <export>
     <set name="Pressione_Arduino">
-      <data name="tempo (s)">tempo<\data>
-      <data name="pressione (mbar)">pressione<\data>
+      <data name="tempo (s)">tempo</data>
+      <data name="pressione (mbar)">pressione</data>
     </set>
     <set name="Statistica">
-      <data name="Bin start (mbar)">binStart<\data>
-      <data name="Bin count ">binCount<\data>
+      <data name="Bin start (mbar)">binStart</data>
+      <data name="Bin count ">binCount</data>
     </set>
   </export>
   
