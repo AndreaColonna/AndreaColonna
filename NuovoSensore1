@@ -37,7 +37,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 		 
 <input>    
 
-      <sensor type = "type 9" >    <!-- sensor= sensore dello smartphone  type= accelerometro rate=0 alla massima velocità possibile-->
+      <sensor type = "type 9" rate="0">    <!-- sensor= sensore dello smartphone  type= accelerometro rate=0 alla massima velocità possibile-->
             <output component="y">accY</output>   <!-- prendi i valori della componente y e mettili in accY-->
             <output component="t">t</output>      <!-- prendi i valori del tempo e mettili in t -->
        </sensor> 
