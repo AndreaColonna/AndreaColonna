@@ -5,7 +5,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 
 	<title>Misura statistica del campo magnetico lungo x</title>                   <!-- titolo dello strumento -->
 
-	<category>Progetto Mobile smartphone</category>                 <!-- insieme di strumenti -->
+	<category>Campo Mg statistico</category>                 <!-- insieme di strumenti -->
 
 	<description>                                                   <!-- descrizione dell'esperimento-->
         Controlla la distribuzione statistica dei dati del sensore.
