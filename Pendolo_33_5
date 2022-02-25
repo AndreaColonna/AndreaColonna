@@ -153,7 +153,7 @@
   </views>
   <analysis>
     <add>
-      <input clear="false">gyrX</input>
+      <!-- <input clear="false">gyrX</input> -->
       <input clear="false">gyrY</input>
       <input clear="false">gyrZ</input>
       <output>anyGyr</output>
