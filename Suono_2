@@ -19,7 +19,7 @@
     <analysis sleep="0"  onUserInput="false">
     </analysis>
     <views>
-      <view label="Arduino">
+      <view label="Suonom">
            <edit label="distanza" unit="cm" default="10" signed="false">
               <output>distanza</output>
            </edit>
