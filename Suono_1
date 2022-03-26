@@ -1,4 +1,5 @@
-<phyphox xmlns="http://phyphox.org/xml" xmlns:editor="http://phyphox.org/editor/xml" version="1.7">
+<phyphox version="1.7" locale="it">
+    <title>Misura velocita' del suono</title> 
     <category>MOBILE Arduino Nano 33 BLE Sense</category>
     <color>009200</color>
     <description> Misura il tempo di viaggio di una onda sonora
