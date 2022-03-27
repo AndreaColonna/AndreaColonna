@@ -28,7 +28,7 @@
           <input>suono</input>  
         </value>
       </view>
-    <\views>
+    </views>
     <analysis sleep="0" onUserInput="false">
       <formula speed=20000*[1_]/[2_]>
         <input>distanza</input>
