@@ -12,7 +12,7 @@
       <container size="0" static="false" init="">suono</container>
     </data-containers>
     <input>
-      <bluetooth mode="notification" rate="1" subscribeOnStart="false" id="Sense">
+      <bluetooth editor:uuid="97" editor:posx="489.9946140514673" editor:posy="276.18494838851854"    mode="notification" rate="1" subscribeOnStart="false">
         <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">tempo</output>
       </bluetooth> 
     </input>
