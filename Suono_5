@@ -21,7 +21,7 @@
         <value label="tempo" size="1" precision="1" unit="µs">
           <input>tempo</input>
         </value>
-        <edit label="distanza" size="1" precision="1" unit="cm">
+        <edit label="distanza" size="1" precision="1" unit="cm" default="10" signed="false">
           <output>distanza</output>
         </edit>
         <value label="velocità del suono" precision="2" unit="m/s">
