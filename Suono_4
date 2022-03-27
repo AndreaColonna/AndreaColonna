@@ -35,7 +35,7 @@
         <input>tempo</input>
         <output>suono</output>
       </formula>  
-    </analys>
+    </analysis>
     <export>
       <set name="Velocità suono">
         <data name="tempo (µs)">tempo</data>
