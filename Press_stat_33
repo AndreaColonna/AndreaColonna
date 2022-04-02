@@ -1,0 +1,148 @@
+<!-- Mostra il valore di pressione misurato dal sensore Arduino nano 33 BLE sense:
+in mbar.
+Il valore di pressione viene mediato attarverso il valore statistico
+-->
+<phyphox version="1.7" locale="it">
+
+  <title>Pressione statistica da Arduino</title>
+  
+  <category>Esperimenti con ARDUINO</category>
+  
+  <description>
+    Mostra la pressione misurata da Arduino in mbar e la media attraverso la statistica. Nella scheda Arduino 33 BLE sense deve essere installato lo scratch "Pressione_nano" che attiva solo il sensore di pressione. La configurazione della scheda ha un piccolo difetto il valore del sensore di pressione  viene alterato dalla misura dei valori degli altri sensori. Questo metodo evita tali interferenze.       
+  </description>
+  
+  <icon>ABs</icon>
+  
+  <color>green</color>
+  
+  <data-containers>
+    <!-- variabili per le letture del sensore -->
+    <container size="0" static="false" init="">pressione</container> <!-- Variabile in cui verranno memorizzati i valori di pressione letti dal sensore -->
+    <container size="0" static="false" init="">tempo</container>     <!-- Variabile in cui verranno memorizzati i valori di tempo letti dal sensore -->
+    <!-- variabili per la statistica -->
+    <container size="1">binSize</container>
+    <container size="0">binStart</container>
+    <container size="0">binCount</container>
+    <container size="1">average</container>
+    <container size="1">deviation</container>
+    <container size="1">count</container>
+    <!-- variabili per la curva teorica gaussiana -->
+    <container size="1">minX</container>
+    <container size="1">maxX</container>
+    <container size="500">gaussianX</container>
+    <container size="500">gaussian</container>
+  </data-containers>
+  
+  <input>
+    <!-- Da arduino a phyphox BLE -->
+    <bluetooth mode="notification" rate ="1" subscribeOnStart="false" id="Sense">
+      <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">pressione</output>
+      <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" extra="time">tempo</output>
+    </bluetooth>
+  </input>
+  
+  <output></output>
+  
+  <views>   <!-- schermate -->
+    <view label= "Pressione Arduino">
+      <!-- grafico pressione tempo -->
+      <graph label="Pressione" aspectRatio="2.5" style="lines" lineWidth="1" partialUpdate= "true" history="1" labelX="t" labelY="p" labelZ="" unitX="s" unitY="mbar" unitZ="" logX="false" xPrecision="3" yPrecision="5" zPrecision="3" scaleMinX="auto" scaleMaxX="auto" scaleMinY="auto" scaleMaxY="auto" scaleMinZ="auto" scaleMaxZ="auto" minX="0" maxX="0" minY="0" maxY="0" minZ="0" maxZ="0" mapWidth="0">
+        <input axis="x">tempo</input>
+        <input axis="y">pressione</input>
+      </graph>
+      <!-- grafico istogramma -->
+      <graph label="Istogramma" labelX="Pressione" labelY="Conteggi" partialUpdate="false" unitX="mbar" xPrecision="6">
+        <input axis="x">gaussianX</input>
+        <input axis="y" style="lines" lineWidth="2">gaussian</input>
+        <input axis="x">binStart</input>
+        <input axis="y" style="vbars" color="E0E040" lineWidth="0.9">binCount</input>
+      </graph>
+      <!-- oggetto editabile -->
+      <edit label="Ampiezza" unit="mbar" default="0.01" signaed="false">
+        <output>binSize</output>
+      </edit>
+      <value label="Pressione" size="1" precision="3" unit="mbar">
+        <input>pressione</input>
+      </value>
+      <value label="Pressione Media" precision="3" scientific="false" unit="mbar" factor="1">
+        <input>average</input>
+      </value>
+      <value label="deviazione standard" precision="3" scientific="false" unit="mbar" factor="1">
+        <input>deviation</input>
+      </value>
+      <value label="Conteggi" precision="0" scientific="false" unit="" factor="1">
+        <input>count</input>
+      </value>
+    </view>
+  </views>
+  
+  <!-- Bolocco operazioni -->
+  <analysis sleep="0" onUserInput="false">
+    
+    <!-- blocco per il calcolo del numero di intervalli -->
+    <binning>
+      <input clear="false">pressione</input>
+      <input as="dx" clear="false">binSize</input>
+      <output clear="true">binStart</output>
+      <output clear="true">binCount</output>
+    </binning>
+    
+    <!-- blocco per il calcolo del valor medio  -->
+    <average>
+      <input clear="false">pressione</input>
+      <output as="average">average</output>
+      <output as="stddev">deviation</output>
+    </average>
+    
+    <!-- blocco per il conteggio dei valori di pressione -->
+    <count>
+      <input clear="false">pressione</input>
+      <output as="count">count</output>
+    </count>
+    
+    <!-- Blocco per il cacolo dei punti della Gaussiana -->
+    <subrange> <!-- primo elemento di binStart -->
+      <input clear="false">binStart</input>
+      <input as="from" type="value">0</input>
+      <input as="length" type="value">1</input>
+      <output>minX</output>
+    </subrange>
+    
+    <!-- blocco per calcolare i valori max di X -->
+    <max>
+      <input as="y" clear="false">binStart</input>
+      <output as="max">maxX</output>
+    </max>
+    
+    <!-- blocco per calcolare le ascisse della gaussiana -->
+    <ramp>
+      <input as="start" clear="false">minX</input>
+      <input as="stop" clear="false">maxX</input>
+      <output>gaussianX</output>
+    </ramp>
+    
+    <!-- blocco per il calcolo di y della gaussiana -->
+    <formula formula="[4]*[5]*exp(-0.5*([1_]-[2])^2/[3]^2)/(2.506628*[3])">
+      <input clear="false">gaussianX</input>
+      <input clear="false">average</input>
+      <input clear="false">deviation</input>
+      <input clear="false">binSize</input>
+      <input clear="false">count</input>
+      <output>gaussian</output>
+    </formula>
+  </analysis>
+  
+  <!-- blocco per esportare i dati -->
+  <export>
+    <set name="Pressione_Arduino">
+      <data name="tempo (s)">tempo</data>
+      <data name="pressione (mbar)">pressione</data>
+    </set>
+    <set name="Statistica">
+      <data name="Bin start (mbar)">binStart</data>
+      <data name="Bin count ">binCount</data>
+    </set>
+  </export>
+  
+</phyphox>
