@@ -1,0 +1,48 @@
+<!-- Esperimento per il calcolo della velocità del suono tramite l'eco di un onda ultrasonica -->
+<phyphox version="1.7" locale="it">
+    <title>Velocità del suono</title>
+    <category>Onda_33</category>
+    <icon>AVs</icon>
+    <color>green</color>
+    <data-containers>
+    <!-- variabili per il bluetooth -->
+      <container size="0" static="false" init="">tempo</container>
+    <!-- variabili per il programma -->
+      <container size="0" static="false" init="">distanza</container>
+      <container size="0" static="false" init="">suono</container>
+    </data-containers>
+    <input>
+      <bluetooth mode="notification" rate="0" subscribeOnStart="false" id="Sense">
+        <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">tempo</output>
+      </bluetooth> 
+    </input>
+    <output>
+    </output>
+    <views>
+      <view label="Acquisizioni">
+        <value label="tempo" size="1" precision="1" unit="µs">
+          <input>tempo</input>
+        </value>
+        <edit label="distanza" size="1" precision="1" unit="cm" default="10" signed="false">
+          <output>distanza</output>
+        </edit>
+        <value label="velocità del suono" precision="2" unit="m/s">
+          <input>suono</input>  
+        </value>
+      </view>
+    </views>
+    <analysis sleep="0" onUserInput="false">
+      <formula formula="20000*[1_]/[2_]">
+        <input>distanza</input>
+        <input>tempo</input>
+        <output>suono</output>
+      </formula>  
+    </analysis>
+    <export>
+      <set name="Velocità suono">
+        <data name="tempo (µs)">tempo</data>
+        <data name="distanza (cm)">distanza</data>
+        <data name="velocità del suono (m/s)">suono</data>
+      </set>
+    </export>
+</phyphox>
