@@ -7,6 +7,8 @@
     <data-containers>
     <!-- variabili per il bluetooth -->
       <container size="0" static="false" init="">tempo</container>
+      <container size="0" static="false" init="">temperature</container>
+      <container size="0" static="false" init="">v_suono_T</container>
     <!-- variabili per il programma -->
       <container size="0" static="false" init="">distanza</container>
       <container size="0" static="false" init="">suono</container>
