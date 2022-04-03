@@ -14,16 +14,24 @@
     <input>
       <bluetooth mode="notification" subscribeOnStart="false" id="Sense">
         <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="0">tempo</output>
+        <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="4">temperature</output>
+        <output char="cddf1002-30f7-4671-8b43-5e40ba53514a" conversion="float32LittleEndian" offset="8">v_suono_T</output>
       </bluetooth> 
     </input>
-    <output>
+     <output>
     </output>
     <views>
       <view label="Acquisizioni">
         <value label="tempo" size="1" precision="1" unit="µs">
           <input>tempo</input>
         </value>
-        <edit label="distanza" size="1" precision="1" unit="cm" default="10" signed="false">
+        <value label="Temperatura" size="1" precision="1" unit="°C">
+          <input>temperature</input>
+        </value>
+        <value label="Velocità del suono teorica" size="1" precision="1" unit="m/s">
+          <input>v_suono_T</input>
+        </value>
+        <edit label="distanza" size="1" precision="1" unit="cm" default="20" signed="false">
           <output>distanza</output>
         </edit>
         <value label="velocità del suono" precision="2" unit="m/s">
@@ -32,7 +40,7 @@
       </view>
     </views>
     <analysis sleep="0" onUserInput="false">
-      <formula formula="20000*[1_]/[2_]">
+      <formula formula="10000*[1_]/[2_]">
         <input>distanza</input>
         <input>tempo</input>
         <output>suono</output>
