@@ -33,6 +33,12 @@
         <value label="velocità del suono" precision="2" unit="m/s">
           <input>suono</input>  
         </value>
+        <value label="temperatura" size="1" precision="1" unit="°C">
+          <input>temperature</input>
+        </value>
+        <value label="suono teorico" size="1" precision="1" unit="m/s">
+          <input>vsuonoT</input>
+        </value>
       </view>
     </views>
     <analysis sleep="0" onUserInput="false">
