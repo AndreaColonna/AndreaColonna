@@ -42,7 +42,7 @@
       </view>
     </views>
     <analysis sleep="0" onUserInput="false">
-      <formula formula="20000*[1_]/[2_]">
+      <formula formula="10000*[1_]/[2_]">
         <input>distanza</input>
         <input>tempo</input>
         <output>suono</output>
