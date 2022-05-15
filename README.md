@@ -1,4 +1,4 @@
-- 👋 Hi, I’m AndreaColonna
+# - 👋 Hi, I’m Andrea Colonna
 - 👀 I’m interested in lab physics
 - 🌱 I’m currently learning phyphox
 - 💞️ I’m looking to collaborate on lab physics
