@@ -128,18 +128,18 @@ Il valore reale viene mediato attarverso il valore statistico.
     </view>
   </views>
 	
-	<export>
+<export>
     <set name="Dati grezzi">
       <data name="tempo (s)">t</data>
       <data name="pressione (hPa)">pressione</data>
     </set>
 
-        <set name="Dati statistici">
-						<data name="valor medio pressione (hPa)">average</data>
-						<data name="dev. st. pr (hPa)">deviation</data>
-            <data name="Bin start (hPa)">binStart</data>
-            <data name="Bin count">binCount</data>
-        </set>
+     <set name="Dati statistici">
+	<data name="valor medio pressione (hPa)">average</data>
+	<data name="dev. st. pr (hPa)">deviation</data>
+        <data name="Bin start (hPa)">binStart</data>
+        <data name="Bin count">binCount</data>
+      </set>
   </export>
 	
 </phyphox>
