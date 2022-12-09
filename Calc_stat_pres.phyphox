@@ -130,7 +130,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 	
   <export>
     <set name="Dati grezzi">
-     <!--<data name="tempo (s)">t</data> -->
+      <data name="tempo (s)">t</data>
       <data name="pressione (hPa)">pressione</data>
     </set>
 
