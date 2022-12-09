@@ -60,7 +60,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 
         <count>
             <input clear="false">pressione</input>
-            <output as="count">count</output>          <!-- numero di valori di mf_x -->
+            <output as="count">count</output>          <!-- numero di valori di pressione -->
         </count>
 
         <subrange>                                     <!-- firt element of binStart -->
