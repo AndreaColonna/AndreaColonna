@@ -96,7 +96,7 @@ Il valore reale viene mediato attarverso il valore statistico.
     <view label="Pressione">
       <graph label="Pressione" timeOnX="true" labelX="[[quantity_short_time]]" unitX="[[unit_short_second]]" labelY="[[quantity_short_pressure]]" unitY="[[unit_short_hecto_pascal]]" partialUpdate="true">
         <input axis="x">t</input>
-        <input axis="y">pressure</input>
+        <input axis="y">pressione</input>
       </graph>
 
       <graph label="Istogramma" labelX="pr" labelY="Count" partialUpdate="false" unitX="hPa" xPrecision="4"> <!-- istogramma dei valori di pressione + gaussiana -->
