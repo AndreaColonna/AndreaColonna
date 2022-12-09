@@ -20,31 +20,31 @@ Il valore reale viene mediato attarverso il valore statistico.
 					<!-- contenitori per i valori dallo smartphone  -->
 	    		<container size="0" static="false" init="">pressione</container> <!-- contenitore per i valori di pressione del sensore Ipad -->
 	    		<container size="0" static="false" init="">t</container> <!-- contenitore per il tempo -->
-<!-- contenitori per l'indagine statistica  -->   
+  <!-- contenitori per l'indagine statistica  -->   
           <container size="1">binSize</container>                     <!-- dimensione dell'intervallo -->
 	        <container size="0">binStart</container>                    <!-- intervallo di partenza -->
 	        <container size="0">binCount</container>                    <!-- numero di intervalli -->
 	        <container size="1">average</container>                     <!-- valor medio di pressione -->
 	        <container size="1">deviation</container>                   <!-- deviazione standard di pressione -->
 	        <container size="1">count</container>                       <!-- numero di conteggi di pressione -->
-<!-- contenitori per il calcolo della curva gaussiana teorica -->
+  <!-- contenitori per il calcolo della curva gaussiana teorica -->
           <container size="1">minX</container>                        <!-- valore minimo misurato di pressione -->
           <container size="1">maxX</container>                        <!-- valore massimo di pressione -->
           <container size="500">gaussianX</container>                 <!-- valore pressione per la gaussiana -->
           <container size="500">gaussian</container>                  <!-- il valore y della gaussiana -->
      </data-containers>
 		 
-<input>    
+  <input>    
         <sensor type="pressure" rate="0">    <!-- sensor= sensore dello smartphone  type= "pressure" rate=0 alla massima velocità possibile-->
             <output component="x">pressione</output>   <!-- prendi i valori della componente x e mettili in mfX-->
             <output component="t">t</output>      <!-- prendi i valori del tempo e mettili in t -->
         </sensor>
-</input>
+  </input>
 
-<output>
-</output>
+  <output>
+  </output>
 
-<analysis sleep="0" onUserInput="false">
+  <analysis sleep="0" onUserInput="false">
         <binning>
             <input clear="false">pressione</input>
             <input as="dx" clear="false">binSize</input>
@@ -128,7 +128,7 @@ Il valore reale viene mediato attarverso il valore statistico.
     </view>
   </views>
 	
-<export>
+  <export>
     <set name="Dati grezzi">
       <data name="tempo (s)">t</data>
       <data name="pressione (hPa)">pressione</data>
