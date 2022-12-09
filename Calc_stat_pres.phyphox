@@ -17,7 +17,7 @@ Il valore reale viene mediato attarverso il valore statistico.
 	<color>yellow</color>  <!-- colore icona -->
 	
  <data-containers>
-	       <!-- contenitori per i valori dallo smartphone  -->
+ <!-- contenitori per i valori dallo smartphone  -->
 	  <container size="0" static="false" init="">pressione</container> <!-- contenitore per i valori di pressione del sensore Ipad -->
 	  <container size="0" static="false" init="">t</container> <!-- contenitore per il tempo -->
   <!-- contenitori per l'indagine statistica  -->   
