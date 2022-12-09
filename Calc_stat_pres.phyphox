@@ -95,7 +95,7 @@ Il valore reale viene mediato attarverso il valore statistico.
   <views>   <!-- Blocco schermate -->  
     <view label="Pressione">
       <graph label="Pressione" timeOnX="true" labelX="[[quantity_short_time]]" unitX="[[unit_short_second]]" labelY="[[quantity_short_pressure]]" unitY="[[unit_short_hecto_pascal]]" partialUpdate="true">
-        <input axis="x">p_time</input>
+        <input axis="x">t</input>
         <input axis="y">pressure</input>
       </graph>
 
