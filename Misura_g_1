@@ -35,10 +35,11 @@ Il valore reale viene mediato attarverso il valore statistico.
     </translations>
     <data-containers>
           <!-- contenitori per i valori dallo smartphone  -->
-        <container size="0">acc</container>             <!-- contenitore per il modulo accelerazione lungo dello smartphone -->
+        <container size="0">acc1</container>             <!-- contenitore per il modulo accelerazione lungo dello smartphone -->
         <container size="0">t</container>               <!-- contenitore per il tempo -->
         <!-- contenitori per l'indagine statistica  --> 
-        <container size="0">binStart</container>    <!-- intervallo di partenza -->   
+        <container size="0">acc</container>
+	<container size="0">binStart</container>    <!-- intervallo di partenza -->   
         <container size="0">binCount</container>    <!-- numero di intervalli -->
         <container size="1">average</container>     <!-- valor medio di g  -->
         <container size="1">deviation</container>   <!-- deviazione standard di g --> 
@@ -51,7 +52,7 @@ Il valore reale viene mediato attarverso il valore statistico.
     </data-containers>
     <input>
         <sensor type="accelerometer" rate="0">        <!-- sensor= sensore dello smartphone  type= accelerometro rate=0 alla massima velocità possibile-->
-            <output component="abs">acc</output>      <!-- prendi i valori del modulo di g e mettili in acc-->
+            <output component="abs">acc1</output>      <!-- prendi i valori del modulo di g e mettili in acc-->
             <output component="t">t</output>          <!-- prendi i valori del tempo e mettili in t -->
         </sensor>
     </input>
@@ -82,7 +83,11 @@ Il valore reale viene mediato attarverso il valore statistico.
         </view>
     </views>
     <analysis>
-        
+        <add>
+	     <input>acc1</input>
+	     <input as="base" type="value">0.1</input>
+	     <output>acc</output>
+	</add>
         <binning>
             <input clear="false">acc</input>
             <input clear="false" as="dx">binSize</input>
