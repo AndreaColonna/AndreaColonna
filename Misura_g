@@ -1,3 +1,6 @@
+<!-- Mostra il modulo dell'accelerazione misurato dallo smartphone.
+Il valore reale viene mediato attarverso il valore statistico.
+-->
 <phyphox version="1.7" locale="it">
     <title>Misura statistica di g</title>
     <category>Meccanica statistica</category>
@@ -31,30 +34,30 @@
         </translation>
     </translations>
     <data-containers>
-        <container size="0">acc</container>
-        <container size="0">t</container>
-        <container size="0">binStart</container>
-        <container size="0">binCount</container>
-        <container size="1">average</container>
-        <container size="1">deviation</container>
-        <container size="1">count</container>
-        <container size="1">binSize</container>
-        <container size="0">temp1</container>
-        <container size="0">temp2</container>
-        <container size="1">minX</container>
-        <container size="1">maxX</container>
-        <container size="500">gaussianX</container>
-        <container size="500">gaussian</container>
+          <!-- contenitori per i valori dallo smartphone  -->
+        <container size="0">acc</container>             <!-- contenitore per il modulo accelerazione lungo dello smartphone -->
+        <container size="0">t</container>               <!-- contenitore per il tempo -->
+        <!-- contenitori per l'indagine statistica  --> 
+        <container size="0">binStart</container>    <!-- intervallo di partenza -->   
+        <container size="0">binCount</container>    <!-- numero di intervalli -->
+        <container size="1">average</container>     <!-- valor medio di g  -->
+        <container size="1">deviation</container>   <!-- deviazione standard di g --> 
+        <container size="1">count</container>       <!-- numero di conteggi di g -->
+        <container size="1">binSize</container>     <!-- dimensione dell'intervallo -->
+        <container size="1">minX</container>           <!-- valore minimo misurato di g -->
+        <container size="1">maxX</container>           <!-- valore massimo di g -->
+        <container size="500">gaussianX</container>    <!-- valore x per la gaussiana -->
+        <container size="500">gaussian</container>     <!-- il valore y della gaussiana -->
     </data-containers>
     <input>
-        <sensor type="accelerometer" rate="0">
-            <output component="abs">acc</output>
-            <output component="t">t</output>
+        <sensor type="accelerometer" rate="0">        <!-- sensor= sensore dello smartphone  type= accelerometro rate=0 alla massima velocità possibile-->
+            <output component="abs">acc</output>      <!-- prendi i valori del modulo di g e mettili in acc-->
+            <output component="t">t</output>          <!-- prendi i valori del tempo e mettili in t -->
         </sensor>
     </input>
     <views>
-        <view label="Misura di g">
-            <graph label="Misura di g" labelX="t (s)" labelY="Acceleration (m/s²)" partialUpdate="true" style="lines">
+        <view label="Misura statistica di g">   <!-- Blocco schermate -->
+            <graph label="Misura di g" labelX="t (s)" labelY="Accelerazione (m/s²)" partialUpdate="true" style="lines">
                 <input axis="x">t</input>
                 <input axis="y">acc</input>
             </graph>
@@ -79,20 +82,23 @@
         </view>
     </views>
     <analysis>
+        
         <binning>
             <input clear="false">acc</input>
             <input clear="false" as="dx">binSize</input>
             <output clear="true">binStart</output>
             <output clear="true">binCount</output>
         </binning>
+        
         <average>
             <input clear="false">acc</input>
             <output as="average">average</output>
             <output as="stddev">deviation</output>
         </average>
+        
         <count>
             <input clear="false">acc</input>
-            <output>count</output>
+            <output as="count">count</output>
         </count>
 
 
@@ -102,60 +108,26 @@
             <input clear="false">binStart</input>
             <output>minX</output>
         </subrange>
-        <append>
-            <input clear="false">binStart</input>
-            <output>temp1</output>
-        </append>
-        <add>
-            <input>temp1</input>
-            <input clear="false">binSize</input>
-            <output>maxX</output>
-        </add>
+        
+        <max> 
+            <input as="y" clear="false">binStart</input>
+            <output as="max">maxX</output>              <!-- calcolo del valore massimo -->
+        </max>
+	
         <ramp>
             <input as="start" clear="false">minX</input>
-            <input as="stop" clear="false">maxX</input>
+            <input as="stop" clear="false">maxX</input>   <!-- calcolo dei valori x della gaussiana -->
             <output>gaussianX</output>
         </ramp>
 
-        <subtract>
+        <formula formula="[4]*[5]*exp(-0.5*([1_]-[2])^2/[3]^2)/(2.506628*[3])">
             <input clear="false">gaussianX</input>
             <input clear="false">average</input>
-            <output>temp1</output>
-        </subtract>
-
-        <multiply>
-            <input clear="false">temp1</input>
-            <input>temp1</input>
-            <output>temp2</output>
-        </multiply>
-
-        <divide>
-            <input>temp2</input>
-            <input type="value">-2</input>
             <input clear="false">deviation</input>
-            <input clear="false">deviation</input>
-            <output>temp1</output>
-        </divide>
-
-        <power>
-            <input as="base" type="value">2.7182818284</input> <!-- e -->
-            <input as="exponent">temp1</input>
-            <output>temp2</output>
-        </power>
-
-        <divide>
-            <input>temp2</input>
-            <input type="value">2.506628275</input> <!-- sqrt(2pi) -->
-            <input clear="false">deviation</input>
-            <output>temp1</output>
-        </divide>
-
-        <multiply>
-            <input>temp1</input>
             <input clear="false">binSize</input>
             <input clear="false">count</input>
-            <output>gaussian</output>
-        </multiply>
+            <output>gaussian</output>                 <!-- calcolo dei valori y della gaussiana -->
+        </formula>
 
     </analysis>
     <export>
