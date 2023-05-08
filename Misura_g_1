@@ -83,11 +83,11 @@ Il valore reale viene mediato attarverso il valore statistico.
         </view>
     </views>
     <analysis>
-        <append>
+        <add>
 	     <input>acc1</input>
 	     <input as="base" type="value">0.1</input>
 	     <output>acc</output>
-	</append>
+	</add>
         <binning>
             <input clear="false">acc</input>
             <input clear="false" as="dx">binSize</input>
