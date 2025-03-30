@@ -8,9 +8,7 @@ A  toolkit for analyzing Phyphox smartphone sensor data in physics experiments, 
 - **Direct Data Streaming** via WiFi/Network
 - **Supported Phyphox Experiments**:
   - Accelerometer (RAW data)
-  - Gyroscope
   - Magnetic Field
-  - Light Sensor
   - Pressure
 - **Automatic Metadata Parsing**:
   - Sample rate detection
