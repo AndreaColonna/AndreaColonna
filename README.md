@@ -11,20 +11,18 @@ A  toolkit for analyzing Phyphox smartphone sensor data in physics experiments, 
   - Gyroscope
   - Magnetic Field
   - Light Sensor
-  - Sound Frequency
+  - Pressure
 - **Automatic Metadata Parsing**:
   - Sample rate detection
   - Sensor resolution
   - Timestamp synchronization
 
-## 🛠️ Installation
+## 🛠️ Quick Start: Installation
 
 1. **Phyphox Setup**:
    - Install [Phyphox](https://phyphox.org/) on your smartphone
-   - Enable "Remote Access" in Phyphox settings
 
-2. **Desktop Setup**:
-   ```bash
-   git clone https://github.com/yourusername/phyphox-physics-analyzer.git
-   cd phyphox-physics-analyzer
-   pip install -r requirements.txt
+2. **Scan QR Code in Phyphox**:
+   - Open Phyphox app
+   - Tap "+" → "Scan QR Code"
+   - Point camera at project QR code
