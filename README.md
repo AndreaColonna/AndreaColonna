@@ -2,7 +2,7 @@
 
 A  toolkit for analyzing Phyphox smartphone sensor data in physics experiments, featuring statistical analysis and Gaussian distribution verification.
 
-![Phyphox Integration Demo](screenshots/phyphox_connection.gif) *(example connection animation placeholder)*
+![Phyphox Integration Demo](screenshots/phyphox_connection.gif) 
 
 ## 🌐 Phyphox Integration
 - **Direct Data Streaming** via WiFi/Network
