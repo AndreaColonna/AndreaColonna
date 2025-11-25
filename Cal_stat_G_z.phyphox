@@ -1,4 +1,4 @@
-<!-- Mostra il valore dell'accelerazione misurato dallo smartphone lungo la direzione y.
+<!-- Mostra il valore dell'accelerazione misurato dallo smartphone lungo la direzione z.
 Il valore reale viene mediato attarverso il valore statistico.
 -->
 <phyphox version="1.7" locale="it">
