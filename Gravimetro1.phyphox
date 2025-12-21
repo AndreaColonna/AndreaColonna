@@ -29,7 +29,7 @@
     <container>count</container>
     <container>minX</container>
     <container>maxX</container>
-    <container>bias</container> <-- Differenza tra g_raw e g_teorico-->
+    <container>bias</container> 
     <container size="500">gaussianX</container>
     <container size="500">gaussian</container>
     <container size="0">lat</container>
