@@ -115,12 +115,12 @@
     <!-- Calcolo gravimetro -->
     <!-- Calcolo sinL -->
     <sin deg="true">
-      <input as="value">lat</input>
+      <input keep="true">lat</input>
       <output>sinL</output>
     </sin>
     <!-- Calcolo sin2L -->
     <sin deg="true">
-      <input as="value">lat</input>
+      <input keep="true">lat</input>
       <output>sin2L</output>
     </sin>
     <!-- Calcolo del valore teorico di g -->
