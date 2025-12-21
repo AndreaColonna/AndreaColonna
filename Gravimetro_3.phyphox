@@ -239,7 +239,7 @@
       <graph label="Istogramma" labelX="g_z" labelY="Count" unitX="m/s²" xPrecision="4">
         <input axis="x">gaussianX_c</input>
         <input lineWidth="2" axis="y">gaussian_c</input>
-        <input axis="x">binStart</input>
+        <input axis="x">binStart_c</input>
         <input color="E0E040" style="vbars" lineWidth="0.9" axis="y">binCount_c</input>
       </graph>
       <edit signed="false" unit="m/s²" default="0.01" label="Bin size">
