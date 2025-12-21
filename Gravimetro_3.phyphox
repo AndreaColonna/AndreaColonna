@@ -51,6 +51,9 @@
     <container>count_c</container>
     <container>minX_c</container>
     <container>maxX_c</container>
+
+    <container size="500">gaussianX_c</container>
+    <container size="500">gaussian_c</container>
   </data-containers>
 <!-- Dati del telefonino -->
   <input>
