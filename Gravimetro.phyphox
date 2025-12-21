@@ -60,7 +60,7 @@
         <output component="v">v</output>              <!-- Velocità (m/s) -->
         <output component="dir">dir</output>          <!-- Direzione (gradi) -->
         <output component="accuracy">accuracy</output> <!-- Accuratezza orizzontale -->
-        <output component="vAccuracy">zAccuracy</output> <!-- Accuratezza verticale (se disponibile) -->
+        <output component="zAccuracy">zAccuracy</output> <!-- Accuratezza verticale (se disponibile) -->
         <output component="satellites">satellites</output> <!-- Numero satelliti -->
         <output component="t">t1</output>             <!-- Timestamp GPS (se vuoi usarlo) -->
     </location>
