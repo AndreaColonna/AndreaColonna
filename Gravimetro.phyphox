@@ -55,13 +55,7 @@
 <!-- Dati GPS -->    
     <location>
         <output component="lat">lat</output>          <!-- Latitudine (gradi) -->
-        <output component="lon">lon</output>          <!-- Longitudine (gradi) -->
         <output component="zwgs84">zwgs84</output>    <!-- Altezza sopra ellissoide WGS84 (metri) -->
-        <output component="v">v</output>              <!-- Velocità (m/s) -->
-        <output component="dir">dir</output>          <!-- Direzione (gradi) -->
-        <output component="accuracy">accuracy</output> <!-- Accuratezza orizzontale -->
-        <output component="zAccuracy">zAccuracy</output> <!-- Accuratezza verticale (se disponibile) -->
-        <output component="satellites">satellites</output> <!-- Numero satelliti -->
         <output component="t">t1</output>             <!-- Timestamp GPS (se vuoi usarlo) -->
     </location>
   </input>
