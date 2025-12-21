@@ -163,7 +163,7 @@
     </view>
     <!-- 2 Aspetto valori GPS -->
     <view label="GPS">
-      <value precision="3" format="degree-minutes-seconds" label="latitudine">
+      <value size="1" precision="6" unit="[[unit_short_degree]]" label="Latitudine">
         <input>lat</input>
       </value>
       <separator/>
