@@ -56,7 +56,7 @@
     <location>
         <output component="lat">lat</output>          <!-- Latitudine (gradi) -->
         <output component="lon">lon</output>          <!-- Longitudine (gradi) -->
-        <output component="height">zwgs84</output>    <!-- Altezza sopra ellissoide WGS84 (metri) -->
+        <output component="zwgs84">zwgs84</output>    <!-- Altezza sopra ellissoide WGS84 (metri) -->
         <output component="v">v</output>              <!-- Velocità (m/s) -->
         <output component="dir">dir</output>          <!-- Direzione (gradi) -->
         <output component="hAccuracy">accuracy</output> <!-- Accuratezza orizzontale -->
