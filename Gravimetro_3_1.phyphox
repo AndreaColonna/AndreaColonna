@@ -5,21 +5,21 @@
     Questo file definisce un esperimento per misurare l'accelerazione di gravità
     utilizzando l'accelerometro dello smartphone con calibrazione GPS.
 
-La nuova logica di calibrazione:
+    La nuova logica di calibrazione:
         1. Calcola il fattore di correzione come rapporto tra il valore teorico di g (da GPS) e la media dei dati grezzi: `bias = z / average`
         2. Applica questo fattore moltiplicativamente ai dati grezzi: `accZ_c = accZ * bias`
     
-Questo assicura che:
+    Questo assicura che:
         - Il valore calibrato sia centrato sul valore teorico di g
         - La media dei dati calibrati corrisponda al valore atteso
         - La distribuzione gaussiana sia correttamente centrata
 
     Struttura del file:
-    - data-containers: definisce i contenitori per i dati
-    - input: configura i sensori di input (accelerometro e GPS)
-    - analysis: contiene le operazioni di elaborazione dati
-    - views: definisce l'interfaccia utente e i grafici
-    - export: configura i dati esportabili
+        - data-containers: definisce i contenitori per i dati
+        - input: configura i sensori di input (accelerometro e GPS)
+        - analysis: contiene le operazioni di elaborazione dati
+        - views: definisce l'interfaccia utente e i grafici
+        - export: configura i dati esportabili
   -->
   <title>Gravimetro</title>
   <category>Meccanica statistica</category>
