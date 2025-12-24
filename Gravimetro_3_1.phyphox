@@ -232,7 +232,7 @@
       </value>
     </view>
     <!-- 2 Aspetto valori GPS -->
-    <view label="GPS">
+    <view label="Correzione GPS">
       <value size="1" precision="6" unit="[[unit_short_degree]]" label="Latitudine">
         <input>lat</input>
       </value>
